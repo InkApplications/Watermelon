@@ -1,2 +1,2 @@
-include("coroutine-extensions")
-include("stdlib-extensions")
+include("coroutine")
+include("stdlib")
