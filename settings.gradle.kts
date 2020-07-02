@@ -1,3 +1,3 @@
 include("android")
-include("coroutine")
+include("coroutines")
 include("stdlib")
