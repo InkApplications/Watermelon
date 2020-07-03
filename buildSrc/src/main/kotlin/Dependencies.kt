@@ -6,5 +6,5 @@ object Coroutines {
     const val core = "$group:kotlinx-coroutines-core:$version"
     const val common = "$group:kotlinx-coroutines-core-common:$version"
     const val android = "$group:kotlinx-coroutines-android:$version"
-    const val js = "$group:kotlinx-coroutines-js:$version"
+    const val js = "$group:kotlinx-coroutines-core-js:$version"
 }
