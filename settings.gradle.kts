@@ -1,5 +1,5 @@
 include("android")
 include("coroutines")
-include("stdlib")
+include("common")
 
-rootProject.name = "extensions"
+rootProject.name = "kotlin-mindfreak"

@@ -1,15 +1,12 @@
 @file:Suppress("UNUSED_VARIABLE")
 
-import org.jetbrains.dokka.gradle.DokkaTask
-
 plugins {
     kotlin("multiplatform")
-    id("org.jetbrains.dokka")
+    id("inkapplications.publishing")
 }
 
 repositories {
     mavenCentral()
-
     jcenter()
 }
 
@@ -69,9 +66,4 @@ kotlin {
             dependsOn(nativeMain)
         }
     }
-}
-
-tasks.withType<DokkaTask>().configureEach {
-    outputDirectory = "$buildDir/dokka"
-    outputFormat = "html"
 }

@@ -1,6 +1,7 @@
 plugins {
     id("com.android.library")
     kotlin("android")
+    id("inkapplications.publishing")
 }
 
 android {
