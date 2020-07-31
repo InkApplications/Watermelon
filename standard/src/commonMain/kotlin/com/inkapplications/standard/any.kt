@@ -1,7 +1,7 @@
 /**
  * Extensions on any object.
  */
-package com.inkapplications.common
+package com.inkapplications.standard
 
 /**
  * Add after a when statement to force it to be exhaustive with out having to set
