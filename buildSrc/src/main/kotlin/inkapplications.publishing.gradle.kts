@@ -6,7 +6,7 @@ plugins {
     id("com.jfrog.bintray")
 }
 
-val isReleaseBuild = project.version.toString().contains("-SNAPSHOT")
+val isReleaseBuild = !project.version.toString().endsWith("-SNAPSHOT")
 val targetRepo = if (isReleaseBuild) "oss-snapshot-local" else "oss-release-local"
 
 val bintrayUsername: String by project
