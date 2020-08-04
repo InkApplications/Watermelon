@@ -2,7 +2,7 @@ import org.gradle.api.Project
 import org.gradle.kotlin.dsl.extra
 
 /**
- * Loads a value from project properties or from environemnt variables.
+ * Loads a value from project properties or from environment variables.
  * namespace for project properties is `cash.andrew.mntrail` and `MN_TRAIL_INFO`
  * for environment variables.
  */
@@ -14,6 +14,6 @@ fun Project.loadExtra(key: String, defaultValue: String = "") {
 
     extra[extraKey] = when {
         hasProperty(propertyKey) -> properties[propertyKey]
-        else -> System.getenv("INKAPPLICATIONS_MINDFREAK${key.toScreamingSnakeCase()}") ?: defaultValue
+        else -> System.getenv("INKAPPLICATIONS_MINDFREAK_${key.toScreamingSnakeCase()}") ?: defaultValue
     }
 }

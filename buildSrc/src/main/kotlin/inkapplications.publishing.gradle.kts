@@ -6,7 +6,7 @@ plugins {
     id("com.jfrog.bintray")
 }
 
-val isReleaseBuild = project.version.toString().contains("-SNAPSHOT")
+val isReleaseBuild = !project.version.toString().endsWith("-SNAPSHOT")
 val targetRepo = if (isReleaseBuild) "oss-snapshot-local" else "oss-release-local"
 
 val bintrayUsername: String by project
@@ -49,8 +49,8 @@ bintray {
         repo = "kotlin"
         name = "kotlin-mindfreak"
         userOrg = "inkapplications"
-        vcsUrl = "https://github.com/InkApplications/Extensions.git"
-        setLicenses("Apache-2.0")
+        vcsUrl = "https://github.com/InkApplications/kotlin-mindfreak.git"
+        setLicenses("MIT")
     })
 }
 
@@ -61,8 +61,8 @@ fun MavenPublication.createPom(projectName: String) {
 
         licenses {
             license {
-                name.set("The Apache License, Version 2.0")
-                url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
+                name.set("MIT License")
+                url.set("https://opensource.org/licenses/MIT")
             }
         }
     }

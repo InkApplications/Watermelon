@@ -12,3 +12,6 @@ jobs:
             -
                 name: Build
                 run: ./gradlew build
+            -
+                name: Publish
+                run: ./gradlew bintrayPublish
