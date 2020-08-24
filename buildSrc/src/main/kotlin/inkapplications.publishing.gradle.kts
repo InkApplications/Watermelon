@@ -7,7 +7,7 @@ plugins {
 }
 
 val isReleaseBuild = !project.version.toString().endsWith("-SNAPSHOT")
-val targetRepo = if (isReleaseBuild) "oss-snapshot-local" else "oss-release-local"
+val targetRepo = if (isReleaseBuild) "oss-release-local" else "oss-snapshot-local"
 
 val bintrayUsername: String by project
 val bintrayPassword: String by project
