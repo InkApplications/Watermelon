@@ -48,3 +48,12 @@ inline fun <T, R> Flow<Iterable<T>>.mapEach(crossinline mapping: suspend (T) -> 
 inline fun <T> Flow<Iterable<T>>.filterEach(crossinline predicate: suspend (T) -> Boolean): Flow<List<T>> {
     return map { it.filter { predicate(it) } }
 }
+
+/**
+ * Filter a list of nullable items into a non-nullable list.
+ *
+ * This filters out / removes any null items from each list emitted by the flow.
+ */
+fun <T: Any> Flow<Iterable<T?>>.filterEachNotNull(): Flow<List<T>> {
+    return map { it.filterNotNull() }
+}

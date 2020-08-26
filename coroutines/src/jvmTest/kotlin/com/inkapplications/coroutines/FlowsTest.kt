@@ -33,4 +33,18 @@ class FlowsTest {
         assertEquals(listOf(2), result[0], "Filter is applied to each result")
         assertEquals(listOf(4), result[1], "Filter is applied to each result")
     }
+
+    @Test
+    fun filterEachNotNullTest() = runBlockingTest {
+        val initial = flowOf(
+            listOf(null),
+            listOf(null, 4)
+        )
+
+        val result = initial.filterEachNotNull().toList()
+
+        assertEquals(2, result.size, "Each item has a 1:1 mapping")
+        assertEquals(emptyList(), result[0], "Filter keeps empty lists")
+        assertEquals(listOf(4), result[1], "Filter removes null items from list")
+    }
 }
