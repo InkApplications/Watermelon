@@ -10,6 +10,12 @@ kotlin {
             }
         }
 
+        val jvmTest by getting {
+            dependencies {
+                implementation(Coroutines.test)
+            }
+        }
+
         val jvmMain by getting {
             dependencies {
                 api(Coroutines.core)
