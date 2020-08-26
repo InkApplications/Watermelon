@@ -38,13 +38,13 @@ suspend fun <T> Flow<T>.collectOn(scope: CoroutineScope, action: suspend (T) -> 
 /**
  * Map each item in the emitted lists for the flow.
  */
-inline fun <T, R> Flow<Collection<T>>.mapEach(crossinline mapping: suspend (T) -> R): Flow<List<R>> {
+inline fun <T, R> Flow<Iterable<T>>.mapEach(crossinline mapping: suspend (T) -> R): Flow<List<R>> {
     return map { it.map { mapping(it) } }
 }
 
 /**
  * Filter each list emitted by a flow.
  */
-inline fun <T> Flow<Collection<T>>.filterEach(crossinline predicate: suspend (T) -> Boolean): Flow<List<T>> {
+inline fun <T> Flow<Iterable<T>>.filterEach(crossinline predicate: suspend (T) -> Boolean): Flow<List<T>> {
     return map { it.filter { predicate(it) } }
 }
