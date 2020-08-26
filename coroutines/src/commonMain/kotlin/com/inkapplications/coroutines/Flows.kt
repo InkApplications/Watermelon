@@ -2,9 +2,7 @@ package com.inkapplications.coroutines
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.ensureActive
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import kotlin.coroutines.coroutineContext
 
@@ -56,4 +54,17 @@ inline fun <T> Flow<Iterable<T>>.filterEach(crossinline predicate: suspend (T) -
  */
 fun <T: Any> Flow<Iterable<T?>>.filterEachNotNull(): Flow<List<T>> {
     return map { it.filterNotNull() }
+}
+
+/**
+ * Combine two flows into a flow of paired data.
+ */
+fun <A, B> Flow<A>.combinePair(other: Flow<B>): Flow<Pair<A, B>> {
+    return combine(other) { a, b -> a to b }
+}
+/**
+ * Combine a third flow into a flow of paired data to create a triple.
+ */
+fun <A, B, C> Flow<Pair<A, B>>.combineTriple(other: Flow<C>): Flow<Triple<A, B, C>> {
+    return combine(other) { (a, b), c -> Triple(a, b, c) }
 }

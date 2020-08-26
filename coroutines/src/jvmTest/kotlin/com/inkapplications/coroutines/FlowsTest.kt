@@ -47,4 +47,25 @@ class FlowsTest {
         assertEquals(emptyList(), result[0], "Filter keeps empty lists")
         assertEquals(listOf(4), result[1], "Filter removes null items from list")
     }
+
+    @Test
+    fun combinePairTest() = runBlockingTest {
+        val first = flowOf(1)
+        val second = flowOf(2)
+
+        val result = first.combinePair(second).toList()
+
+        assertEquals(listOf(1 to 2), result, "Flows latest results are combined as a pair")
+    }
+
+    @Test
+    fun combineTripleTest() = runBlockingTest {
+        val first = flowOf(1)
+        val second = flowOf(2)
+        val third = flowOf(3)
+
+        val result = first.combinePair(second).combineTriple(third).toList()
+
+        assertEquals(listOf(Triple(1, 2, 3)), result, "Flows latest results are combined as a triple")
+    }
 }
