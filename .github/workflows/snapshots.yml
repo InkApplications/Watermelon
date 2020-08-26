@@ -15,3 +15,6 @@ jobs:
             -
                 name: Publish
                 run: ./gradlew publishAllPublicationsToMavenRepository
+                env:
+                    INKAPPLICATIONS_MINDFREAK_BINTRAY_PASSWORD: ${{ secrets.INKAPPLICATIONS_MINDFREAK_BINTRAY_PASSWORD }}
+                    INKAPPLICATIONS_MINDFREAK_BINTRAY_USERNAME: ${{ secrets.INKAPPLICATIONS_MINDFREAK_BINTRAY_USERNAME }}
