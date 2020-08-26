@@ -19,4 +19,18 @@ class FlowsTest {
         assertEquals(listOf(10, 20), result[0], "Mapping is applied to each result")
         assertEquals(listOf(30, 40), result[1], "Mapping is applied to each result")
     }
+
+    @Test
+    fun filterEachTest() = runBlockingTest {
+        val initial = flowOf(
+            listOf(1, 2),
+            listOf(3, 4)
+        )
+
+        val result = initial.filterEach { it % 2 == 0 }.toList()
+
+        assertEquals(2, result.size, "Each item has a 1:1 mapping")
+        assertEquals(listOf(2), result[0], "Filter is applied to each result")
+        assertEquals(listOf(4), result[1], "Filter is applied to each result")
+    }
 }
