@@ -68,4 +68,15 @@ class FlowsTest {
 
         assertEquals(listOf(Triple(1, 2, 3)), result, "Flows latest results are combined as a triple")
     }
+
+    @Test
+    fun combineFlattenTest() = runBlockingTest {
+        val first = flowOf(listOf(1, 2))
+        val second = flowOf(listOf(3, 4))
+
+        val result = first.combineFlatten(second).toList()
+
+        assertEquals(1, result.size, "Flows are combined")
+        assertEquals(listOf(1, 2, 3, 4), result[0], "Flows are combined into a flattened result")
+    }
 }

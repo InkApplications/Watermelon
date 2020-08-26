@@ -68,3 +68,10 @@ fun <A, B> Flow<A>.combinePair(other: Flow<B>): Flow<Pair<A, B>> {
 fun <A, B, C> Flow<Pair<A, B>>.combineTriple(other: Flow<C>): Flow<Triple<A, B, C>> {
     return combine(other) { (a, b), c -> Triple(a, b, c) }
 }
+
+/**
+ * Combine two flows of iterable data, flattening the data into a single list.
+ */
+fun <T> Flow<Iterable<T>>.combineFlatten(other: Flow<Iterable<T>>): Flow<List<T>> {
+    return combine(other) { a, b -> a + b }
+}
