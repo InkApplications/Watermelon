@@ -1,11 +1,47 @@
 package com.inkapplications.coroutines
 
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.asFlow
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.test.runBlockingTest
+import java.util.concurrent.Executors
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class FlowsTest {
+    @Test
+    fun safeCollectTest() = runBlockingTest {
+        var collected = 0
+        flowOf(1, 2).safeCollect {
+            ++collected
+        }
+
+        assertEquals(2, collected, "Safe collect run for each item in flow")
+
+    }
+
+    @Test(expected = CancellationException::class)
+    fun safeCollectCancels() {
+        runBlocking {
+            (1..5).asFlow().safeCollect { value ->
+                if (value > 3) throw AssertionError("Flow should not be collected")
+                if (value == 3) cancel()
+            }
+        }
+    }
+
+    @Test
+    fun collectOnTest() = runBlockingTest {
+        val fixedThread = Thread()
+        val scope = Executors.newSingleThreadExecutor { fixedThread }.asCoroutineDispatcher().let(::CoroutineScope)
+
+        flowOf(1).collectOn(scope) {
+            assertEquals(fixedThread, Thread.currentThread(), "Run on correct scope")
+        }
+    }
+
     @Test
     fun mapEachTest() = runBlockingTest {
         val initial = flowOf(
