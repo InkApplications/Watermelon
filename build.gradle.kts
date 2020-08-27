@@ -1,7 +1,7 @@
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 
 subprojects {
-    group = "com.inkapplications.kotlin-mindfreak"
+    group = "com.inkapplications.watermelon"
     version = "1.0.0-SNAPSHOT"
 
     repositories {
