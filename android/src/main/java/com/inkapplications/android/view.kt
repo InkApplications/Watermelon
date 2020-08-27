@@ -1,3 +1,13 @@
+/*
+ * The following code is based on Jake Wharton's Butterknife library.
+ * Sources received from: https://github.com/JakeWharton/butterknife
+ * Copyright Jake Wharton and licensed under:
+ * Apache License Version 2.0, January 2004
+ * http://www.apache.org/licenses/
+ * 
+ * Modifications include:
+ *  - Update code to run as an extension rather than a class.
+ */
 package com.inkapplications.android
 
 import android.os.Handler
