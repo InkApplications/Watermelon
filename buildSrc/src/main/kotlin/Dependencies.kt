@@ -8,4 +8,5 @@ object Coroutines {
     const val android = "$group:kotlinx-coroutines-android:$version"
     const val js = "$group:kotlinx-coroutines-core-js:$version"
     const val native = "$group:kotlinx-coroutines-core-native:$version"
+    const val test = "$group:kotlinx-coroutines-test:$version"
 }
