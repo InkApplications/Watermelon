@@ -47,9 +47,9 @@ bintray {
 
     pkg(closureOf<BintrayExtension.PackageConfig> {
         repo = "kotlin"
-        name = "kotlin-mindfreak"
+        name = "watermelon"
         userOrg = "inkapplications"
-        vcsUrl = "https://github.com/InkApplications/kotlin-mindfreak.git"
+        vcsUrl = "https://github.com/InkApplications/watermelon.git"
         setLicenses("MIT")
     })
 }
