@@ -10,12 +10,23 @@ package com.inkapplications.standard
  * @param times default 3, the number of times the block will be tried.
  * @param block code block that will be run.
  */
-inline fun <T> retry(times: Int = 3, block: () -> T): T {
+inline fun <T> retry(times: Int = 3, crossinline block: () -> T): T {
+
+    val exceptions = mutableListOf<Exception>()
+
     repeat(times - 1) {
         try {
             return block()
-        } catch (e: Exception) { }
+        } catch (e: Exception) {
+            exceptions.add(e)
+        }
     }
 
-    return block()
+    try {
+        return block()
+    } catch (e: Exception) {
+        exceptions.add(e)
+        throw CompositeException(exceptions)
+    }
 }
+

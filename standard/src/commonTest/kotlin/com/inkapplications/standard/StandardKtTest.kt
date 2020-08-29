@@ -4,6 +4,7 @@ import kotlin.js.JsName
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFails
+import kotlin.test.assertFailsWith
 
 class StandardKtTest {
     @JsName("should_fail_once_then_succeed")
@@ -26,7 +27,7 @@ class StandardKtTest {
     @Test
     fun `should fail 3 times`() {
         var count = 0
-        assertFails("Doesn't work") {
+        assertFailsWith<CompositeException> {
             retry<String> {
                 ++count
                 throw Exception("Doesn't work")
