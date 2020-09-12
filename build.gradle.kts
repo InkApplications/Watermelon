@@ -2,7 +2,7 @@ import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 
 subprojects {
     group = "com.inkapplications.watermelon"
-    version = "1.0.0-SNAPSHOT"
+    version = if (version != "unspecified") version else "1.0-SNAPSHOT"
 
     repositories {
         google()
