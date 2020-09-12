@@ -37,3 +37,24 @@ fun View.setDebouncingOnClickListener(clickListner: (View?) -> Unit) {
         }
     })
 }
+
+/**
+ * Set the visibility of a view.
+ *
+ * This works like Android's `setVisibility` but takes a boolean instead
+ * of a `View` integer constant.
+ * Use this to replace unwieldy if statements when binding views.
+ *
+ * Example:
+ *
+ *     fun toggleViews(show: Boolean) {
+ *         my_view.setVisibility(show)
+ *         my_invisible_view.setVisibility(show, View.INVISIBLE)
+ *     }
+ *
+ * @param visible Whether the view should be displayed or not.
+ * @param hiddenState Optional parameter to control how the view is hidden when [visible] is false.
+ */
+fun View.setVisibility(visible: Boolean, hiddenState: Int = View.GONE) {
+    visibility = if (visible) View.VISIBLE else hiddenState
+}
