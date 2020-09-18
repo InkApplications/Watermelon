@@ -16,7 +16,6 @@ jobs:
                 name: Publish
                 env:
                     GITHUB_TAG: ${{ github.ref }}
-                run: ./gradlew publishAllPublicationsToMavenRepository -Pversion=${GITHUB_TAG/refs\/tags\//}
-                env:
                     INKAPPLICATIONS_WATERMELON_BINTRAY_USERNAME: ${{ secrets.BINTRAY_USERNAME }}
                     INKAPPLICATIONS_WATERMELON_BINTRAY_PASSWORD: ${{ secrets.BINTRAY_PASSWORD }}
+                run: ./gradlew publishAllPublicationsToMavenRepository -Pversion=${GITHUB_TAG/refs\/tags\//}
