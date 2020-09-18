@@ -1,6 +1,7 @@
 package com.inkapplications.coroutines
 
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.ensureActive
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -26,9 +27,11 @@ suspend inline fun <T> Flow<T>.safeCollect(crossinline action: suspend (T) -> Un
  * This can be used to clean up some nesting with multiple launched
  * coroutine flow collections.
  * This uses [safeCollect] to ensure the scope is active when collecting.
+ *
+ * @return The job launched and running the collection action.
  */
-suspend fun <T> Flow<T>.collectOn(scope: CoroutineScope, action: suspend (T) -> Unit) {
-    scope.launch {
+suspend fun <T> Flow<T>.collectOn(scope: CoroutineScope, action: suspend (T) -> Unit): Job {
+    return scope.launch {
         safeCollect(action)
     }
 }
