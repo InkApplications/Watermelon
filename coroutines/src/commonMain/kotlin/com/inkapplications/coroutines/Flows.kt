@@ -30,7 +30,7 @@ suspend inline fun <T> Flow<T>.safeCollect(crossinline action: suspend (T) -> Un
  *
  * @return The job launched and running the collection action.
  */
-suspend fun <T> Flow<T>.collectOn(scope: CoroutineScope, action: suspend (T) -> Unit): Job {
+fun <T> Flow<T>.collectOn(scope: CoroutineScope, action: suspend (T) -> Unit): Job {
     return scope.launch {
         safeCollect(action)
     }
