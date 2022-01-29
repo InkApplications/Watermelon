@@ -1,11 +1,15 @@
 plugins {
     id("com.android.library")
     kotlin("android")
-    id("inkapplications.publishing")
+    id("library.publish")
+}
+
+repositories {
+    google()
 }
 
 android {
-    compileSdkVersion(29)
+    compileSdkVersion(31)
 
     defaultConfig {
         minSdkVersion(16)
@@ -16,8 +20,4 @@ android {
             enabled = false
         }
     }
-}
-
-dependencies {
-    implementation(kotlin("stdlib"))
 }

@@ -1,36 +1,19 @@
 plugins {
-    id("multiplatform-common")
+    id("library.multiplatform")
 }
 
 kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                api(Coroutines.common)
+                api(libraries.kotlinx.coroutines.core)
             }
         }
 
         val jvmTest by getting {
             dependencies {
-                implementation(Coroutines.test)
-            }
-        }
-
-        val jvmMain by getting {
-            dependencies {
-                api(Coroutines.core)
-            }
-        }
-
-        val jsMain by getting {
-            dependencies {
-                api(Coroutines.js)
-            }
-        }
-
-        val nativeMain by getting {
-            dependencies {
-                api(Coroutines.native)
+                implementation(kotlin("test"))
+                implementation(libraries.kotlinx.coroutines.test)
             }
         }
     }

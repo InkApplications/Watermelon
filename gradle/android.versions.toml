@@ -1,0 +1,5 @@
+[versions]
+
+[libraries.android-gradle]
+version = "4.2.0"
+module = "com.android.tools.build:gradle"
