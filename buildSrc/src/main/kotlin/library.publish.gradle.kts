@@ -1,5 +1,6 @@
 plugins {
     id("maven-publish")
+    id("signing")
 }
 
 val javadocJar by tasks.registering(Jar::class) {
@@ -47,5 +48,33 @@ publishing {
             name = "Build"
             url = uri(layout.buildDirectory.dir("repo"))
         }
+
+        val mavenUser: String? by project
+        val mavenPassword: String? by project
+        if (mavenUser != null && mavenPassword != null) {
+            maven {
+                name = "MavenCentral"
+                url = uri("https://oss.sonatype.org/service/local/staging/deploy/maven2/")
+                credentials {
+                    username = mavenUser
+                    password = mavenPassword
+                }
+            }
+        }
+    }
+}
+
+signing {
+    val signingKeyId: String? by project
+    val signingKey: String? by project
+    val signingPassword: String? by project
+
+    if (signingKey != null) {
+        if (signingKeyId != null) {
+            useInMemoryPgpKeys(signingKeyId, signingKey, signingPassword)
+        } else {
+            useInMemoryPgpKeys(signingKey, signingPassword)
+        }
+        sign(tasks["stuffZip"])
     }
 }

@@ -16,6 +16,8 @@ jobs:
                 name: Publish
                 env:
                     GITHUB_TAG: ${{ github.ref }}
-                    INKAPPLICATIONS_WATERMELON_BINTRAY_USERNAME: ${{ secrets.BINTRAY_USERNAME }}
-                    INKAPPLICATIONS_WATERMELON_BINTRAY_PASSWORD: ${{ secrets.BINTRAY_PASSWORD }}
-                run: ./gradlew publishAllPublicationsToMavenRepository -Pversion=${GITHUB_TAG/refs\/tags\//}
+                    ORG_GRADLE_PROJECT_mavenUser: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
+                    ORG_GRADLE_PROJECT_mavenPassword: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
+                    ORG_GRADLE_PROJECT_signingKeyId: ${{ secrets.PGP_INK_CI_KEYID }}
+                    ORG_GRADLE_PROJECT_signingKey: ${{ secrets.PGP_INK_CI_PRIVATE }}
+                run: ./gradlew publishAllPublicationsToMavenCentralRepository -Pversion=${GITHUB_TAG/refs\/tags\//}

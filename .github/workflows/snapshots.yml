@@ -12,9 +12,3 @@ jobs:
             -
                 name: Build
                 run: ./gradlew build
-            -
-                name: Publish
-                run: ./gradlew publishAllPublicationsToMavenRepository
-                env:
-                    INKAPPLICATIONS_WATERMELON_BINTRAY_USERNAME: ${{ secrets.BINTRAY_USERNAME }}
-                    INKAPPLICATIONS_WATERMELON_BINTRAY_PASSWORD: ${{ secrets.BINTRAY_PASSWORD }}
