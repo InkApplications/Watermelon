@@ -20,4 +20,5 @@ jobs:
                     ORG_GRADLE_PROJECT_mavenPassword: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
                     ORG_GRADLE_PROJECT_signingKeyId: ${{ secrets.PGP_INK_CI_KEYID }}
                     ORG_GRADLE_PROJECT_signingKey: ${{ secrets.PGP_INK_CI_PRIVATE }}
+                    ORG_GRADLE_PROJECT_signingPassword: ${{ secrets.PGP_INK_CI_PASSWORD }}
                 run: ./gradlew publishAllPublicationsToMavenCentralRepository -Pversion=${GITHUB_TAG/refs\/tags\//}
