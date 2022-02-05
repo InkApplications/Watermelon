@@ -12,6 +12,6 @@ dependencyResolutionManagement {
         }
     }
 }
-include("android")
+//include("android")
 include("coroutines")
 include("standard")
