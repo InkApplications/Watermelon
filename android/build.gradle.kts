@@ -37,6 +37,49 @@ afterEvaluate {
                 groupId = "com.inkapplications.watermelon"
                 artifactId = "android"
                 version = versionArg
+
+                pom {
+                    name.set("Watermelon ${project.name}")
+                    description.set("Kotlin Multiplatform Tools")
+                    url.set("https://github.com/inkapplications/watermelon")
+                    licenses {
+                        license {
+                            name.set("MIT")
+                            url.set("https://choosealicense.com/licenses/mit/")
+                        }
+                    }
+                    developers {
+                        developer {
+                            id.set("reneevandervelde")
+                            name.set("Renee Vandervelde")
+                            email.set("Renee@InkApplications.com")
+                        }
+                    }
+                    scm {
+                        connection.set("scm:git:https://github.com/InkApplications/watermelon.git")
+                        developerConnection.set("scm:git:ssh://git@github.com:InkApplications/watermelon.git")
+                        url.set("https://github.com/InkApplications/watermelon")
+                    }
+                }
+            }
+        }
+        repositories {
+            maven {
+                name = "Build"
+                url = uri(layout.buildDirectory.dir("repo"))
+            }
+
+            val mavenUser: String? by project
+            val mavenPassword: String? by project
+            if (mavenUser != null && mavenPassword != null) {
+                maven {
+                    name = "MavenCentral"
+                    url = uri("https://oss.sonatype.org/service/local/staging/deploy/maven2/")
+                    credentials {
+                        username = mavenUser
+                        password = mavenPassword
+                    }
+                }
             }
         }
     }
