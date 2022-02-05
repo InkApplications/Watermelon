@@ -75,6 +75,6 @@ signing {
         } else {
             useInMemoryPgpKeys(signingKey, signingPassword)
         }
-        sign(tasks["stuffZip"])
+        sign(publishing.publications["mavenJava"])
     }
 }
