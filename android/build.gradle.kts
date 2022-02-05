@@ -1,6 +1,7 @@
 plugins {
     id("com.android.library")
     kotlin("android")
+    id("maven-publish")
     id("signing")
 }
 
@@ -26,7 +27,7 @@ afterEvaluate {
     publishing {
         publications {
 
-            val version = when (project.properties["version"]?.toString()) {
+            val versionArg = when (project.properties["version"]?.toString()) {
                 null, "unspecified", "" -> "1.0-SNAPSHOT"
                 else -> project.properties["version"].toString()
             }
@@ -35,7 +36,7 @@ afterEvaluate {
                 from(components["release"])
                 groupId = "com.inkapplications.watermelon"
                 artifactId = "android"
-                version = version
+                version = versionArg
             }
         }
     }
