@@ -62,19 +62,21 @@ publishing {
             }
         }
     }
-}
+    publications.all {
+        val publication = this
+        signing {
+            val signingKeyId: String? by project
+            val signingKey: String? by project
+            val signingPassword: String? by project
 
-signing {
-    val signingKeyId: String? by project
-    val signingKey: String? by project
-    val signingPassword: String? by project
-
-    if (signingKey != null) {
-        if (signingKeyId != null) {
-            useInMemoryPgpKeys(signingKeyId, signingKey, signingPassword)
-        } else {
-            useInMemoryPgpKeys(signingKey, signingPassword)
+            if (signingKey != null) {
+                if (signingKeyId != null) {
+                    useInMemoryPgpKeys(signingKeyId, signingKey, signingPassword)
+                } else {
+                    useInMemoryPgpKeys(signingKey, signingPassword)
+                }
+                sign(publication)
+            }
         }
-        sign(publishing.publications["mavenJava"])
     }
 }
