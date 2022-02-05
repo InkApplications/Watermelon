@@ -40,19 +40,18 @@ afterEvaluate {
             }
         }
     }
-}
+    signing {
+        val signingKeyId: String? by project
+        val signingKey: String? by project
+        val signingPassword: String? by project
 
-signing {
-    val signingKeyId: String? by project
-    val signingKey: String? by project
-    val signingPassword: String? by project
-
-    if (signingKey != null) {
-        if (signingKeyId != null) {
-            useInMemoryPgpKeys(signingKeyId, signingKey, signingPassword)
-        } else {
-            useInMemoryPgpKeys(signingKey, signingPassword)
+        if (signingKey != null) {
+            if (signingKeyId != null) {
+                useInMemoryPgpKeys(signingKeyId, signingKey, signingPassword)
+            } else {
+                useInMemoryPgpKeys(signingKey, signingPassword)
+            }
+            sign(publishing.publications["release"])
         }
-        sign(publishing.publications["release"])
     }
 }
