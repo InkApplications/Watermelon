@@ -10,4 +10,5 @@ repositories {
 dependencies {
     implementation(libraries.kotlin.gradle)
     implementation(libraries.android.gradle)
+    implementation(libraries.ink.publishing)
 }
