@@ -6,11 +6,9 @@ rootProject.name = "watermelon"
 dependencyResolutionManagement {
     versionCatalogs {
         create("libraries") {
-            from(files(
-                "gradle/android.versions.toml",
-                "gradle/ink.versions.toml",
-                "gradle/kotlin.versions.toml",
-            ))
+            from(fileTree("gradle/versions").matching {
+                include("*.toml")
+            })
         }
     }
 }
