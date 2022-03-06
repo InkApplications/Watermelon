@@ -5,10 +5,6 @@ plugins {
     id("signing")
 }
 
-repositories {
-    google()
-}
-
 android {
     compileSdkVersion(31)
 
@@ -21,6 +17,14 @@ android {
             enabled = false
         }
     }
+}
+
+repositories {
+    google()
+}
+
+dependencies {
+    implementation(libraries.androidx.appcompat)
 }
 
 afterEvaluate {

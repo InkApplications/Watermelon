@@ -3,3 +3,7 @@
 [libraries.android-gradle]
 version = "4.2.0"
 module = "com.android.tools.build:gradle"
+
+[libraries.androidx-appcompat]
+version = "1.3.0"
+module = "androidx.appcompat:appcompat"
