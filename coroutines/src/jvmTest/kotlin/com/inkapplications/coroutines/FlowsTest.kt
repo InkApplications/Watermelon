@@ -71,6 +71,20 @@ class FlowsTest {
     }
 
     @Test
+    fun filterEachIsInstanceTest() = runBlockingTest {
+        val initial = flowOf(
+            listOf(1.0, 2f),
+            listOf(3f, 4.0)
+        )
+
+        val result = initial.filterEachIsInstance<Float>().toList()
+
+        assertEquals(2, result.size, "Each item has a 1:1 mapping")
+        assertEquals(listOf(2f), result[0], "Filter is applied to each result")
+        assertEquals(listOf(3f), result[1], "Filter is applied to each result")
+    }
+
+    @Test
     fun filterEachNotNullTest() = runBlockingTest {
         val initial = flowOf(
             listOf(null),

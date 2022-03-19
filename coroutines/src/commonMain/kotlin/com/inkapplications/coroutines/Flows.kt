@@ -51,6 +51,13 @@ inline fun <T> Flow<Iterable<T>>.filterEach(crossinline predicate: suspend (T) -
 }
 
 /**
+ * Filter each list emitted by a flow to only items that are an instance of [R]
+ */
+inline fun <reified R> Flow<Iterable<*>>.filterEachIsInstance(): Flow<List<R>> {
+    return map { it.filterIsInstance<R>() }
+}
+
+/**
  * Filter a list of nullable items into a non-nullable list.
  *
  * This filters out / removes any null items from each list emitted by the flow.
