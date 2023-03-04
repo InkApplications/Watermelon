@@ -37,7 +37,7 @@ class PermissionGate(
             .filter { it.value != PackageManager.PERMISSION_GRANTED }
             .keys
         if (required.isEmpty()) return true
-        listener.launch(permissions)
+        listener.launch(permissions.toList().toTypedArray())
 
         return !results.receive().containsValue(false)
     }

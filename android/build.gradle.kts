@@ -17,6 +17,14 @@ android {
             enabled = false
         }
     }
+    compileOptions {
+        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 repositories {
@@ -24,8 +32,8 @@ repositories {
 }
 
 dependencies {
-    implementation(libraries.androidx.appcompat)
-    implementation(libraries.kotlinx.coroutines.core)
+    implementation(androidLibraries.androidx.appcompat)
+    implementation(kotlinLibraries.kotlinx.coroutines.core)
 }
 
 afterEvaluate {

@@ -5,7 +5,30 @@ plugins {
 
 kotlin {
     jvm()
-    js {
+
+    iosArm32()
+    iosArm64()
+    iosX64()
+    iosSimulatorArm64()
+
+    watchosArm32()
+    watchosArm64()
+    watchosX86()
+    watchosX64()
+    watchosSimulatorArm64()
+
+    tvosArm64()
+    tvosX64()
+    tvosSimulatorArm64()
+
+    macosX64()
+    macosArm64()
+
+    linuxX64()
+
+    mingwX64()
+
+    js(BOTH) {
         nodejs()
         browser()
     }
