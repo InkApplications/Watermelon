@@ -36,33 +36,45 @@ fun <T> Flow<T>.collectOn(scope: CoroutineScope, action: suspend (T) -> Unit): J
     }
 }
 
+@Deprecated("Renamed to Items", ReplaceWith("mapItems(mapping)"))
+inline fun <T, R> Flow<Iterable<T>>.mapEach(crossinline mapping: suspend (T) -> R): Flow<List<R>> = mapItems(mapping)
+
 /**
  * Map each item in the emitted lists for the flow.
  */
-inline fun <T, R> Flow<Iterable<T>>.mapEach(crossinline mapping: suspend (T) -> R): Flow<List<R>> {
+inline fun <T, R> Flow<Iterable<T>>.mapItems(crossinline mapping: suspend (T) -> R): Flow<List<R>> {
     return map { it.map { mapping(it) } }
 }
+
+@Deprecated("Renamed to Items", ReplaceWith("filterItems(predicate)"))
+inline fun <T> Flow<Iterable<T>>.filterEach(crossinline predicate: suspend (T) -> Boolean): Flow<List<T>> = filterItems(predicate)
 
 /**
  * Filter each list emitted by a flow.
  */
-inline fun <T> Flow<Iterable<T>>.filterEach(crossinline predicate: suspend (T) -> Boolean): Flow<List<T>> {
+inline fun <T> Flow<Iterable<T>>.filterItems(crossinline predicate: suspend (T) -> Boolean): Flow<List<T>> {
     return map { it.filter { predicate(it) } }
 }
+
+@Deprecated("Renamed to Items", ReplaceWith("filterItemIsInstance<R>()"))
+inline fun <reified R> Flow<Iterable<*>>.filterEachIsInstance(): Flow<List<R>> = filterItemIsInstance()
 
 /**
  * Filter each list emitted by a flow to only items that are an instance of [R]
  */
-inline fun <reified R> Flow<Iterable<*>>.filterEachIsInstance(): Flow<List<R>> {
+inline fun <reified R> Flow<Iterable<*>>.filterItemIsInstance(): Flow<List<R>> {
     return map { it.filterIsInstance<R>() }
 }
+
+@Deprecated("Renamed to Items", ReplaceWith("filterItemNotNull()"))
+fun <T: Any> Flow<Iterable<T?>>.filterEachNotNull(): Flow<List<T>> = filterItemNotNull()
 
 /**
  * Filter a list of nullable items into a non-nullable list.
  *
  * This filters out / removes any null items from each list emitted by the flow.
  */
-fun <T: Any> Flow<Iterable<T?>>.filterEachNotNull(): Flow<List<T>> {
+fun <T: Any> Flow<Iterable<T?>>.filterItemNotNull(): Flow<List<T>> {
     return map { it.filterNotNull() }
 }
 

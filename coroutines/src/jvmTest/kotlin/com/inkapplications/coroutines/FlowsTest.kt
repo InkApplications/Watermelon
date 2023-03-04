@@ -2,17 +2,17 @@ package com.inkapplications.coroutines
 
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.asFlow
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.toList
-import kotlinx.coroutines.test.runBlockingTest
+import kotlinx.coroutines.test.runTest
 import java.util.concurrent.Executors
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
+@OptIn(ExperimentalCoroutinesApi::class)
 class FlowsTest {
     @Test
-    fun safeCollectTest() = runBlockingTest {
+    fun safeCollectTest() = runTest {
         var collected = 0
         flowOf(1, 2).safeCollect {
             ++collected
@@ -33,7 +33,7 @@ class FlowsTest {
     }
 
     @Test
-    fun collectOnTest() = runBlockingTest {
+    fun collectOnTest() = runTest {
         val fixedThread = Thread()
         val scope = Executors.newSingleThreadExecutor { fixedThread }.asCoroutineDispatcher().let(::CoroutineScope)
 
@@ -43,13 +43,13 @@ class FlowsTest {
     }
 
     @Test
-    fun mapEachTest() = runBlockingTest {
+    fun mapEachTest() = runTest {
         val initial = flowOf(
             listOf(1, 2),
             listOf(3, 4)
         )
 
-        val result = initial.mapEach { it * 10 }.toList()
+        val result = initial.mapItems { it * 10 }.toList()
 
         assertEquals(2, result.size, "Each item has a 1:1 mapping")
         assertEquals(listOf(10, 20), result[0], "Mapping is applied to each result")
@@ -57,13 +57,13 @@ class FlowsTest {
     }
 
     @Test
-    fun filterEachTest() = runBlockingTest {
+    fun filterEachTest() = runTest {
         val initial = flowOf(
             listOf(1, 2),
             listOf(3, 4)
         )
 
-        val result = initial.filterEach { it % 2 == 0 }.toList()
+        val result = initial.filterItems { it % 2 == 0 }.toList()
 
         assertEquals(2, result.size, "Each item has a 1:1 mapping")
         assertEquals(listOf(2), result[0], "Filter is applied to each result")
@@ -71,13 +71,13 @@ class FlowsTest {
     }
 
     @Test
-    fun filterEachIsInstanceTest() = runBlockingTest {
+    fun filterEachIsInstanceTest() = runTest {
         val initial = flowOf(
             listOf(1.0, 2f),
             listOf(3f, 4.0)
         )
 
-        val result = initial.filterEachIsInstance<Float>().toList()
+        val result = initial.filterItemIsInstance<Float>().toList()
 
         assertEquals(2, result.size, "Each item has a 1:1 mapping")
         assertEquals(listOf(2f), result[0], "Filter is applied to each result")
@@ -85,13 +85,13 @@ class FlowsTest {
     }
 
     @Test
-    fun filterEachNotNullTest() = runBlockingTest {
+    fun filterEachNotNullTest() = runTest {
         val initial = flowOf(
             listOf(null),
             listOf(null, 4)
         )
 
-        val result = initial.filterEachNotNull().toList()
+        val result = initial.filterItemNotNull().toList()
 
         assertEquals(2, result.size, "Each item has a 1:1 mapping")
         assertEquals(emptyList(), result[0], "Filter keeps empty lists")
@@ -99,7 +99,7 @@ class FlowsTest {
     }
 
     @Test
-    fun combinePairTest() = runBlockingTest {
+    fun combinePairTest() = runTest {
         val first = flowOf(1)
         val second = flowOf(2)
 
@@ -109,7 +109,7 @@ class FlowsTest {
     }
 
     @Test
-    fun combineTripleTest() = runBlockingTest {
+    fun combineTripleTest() = runTest {
         val first = flowOf(1)
         val second = flowOf(2)
         val third = flowOf(3)
@@ -120,7 +120,7 @@ class FlowsTest {
     }
 
     @Test
-    fun combineFlattenTest() = runBlockingTest {
+    fun combineFlattenTest() = runTest {
         val first = flowOf(listOf(1, 2))
         val second = flowOf(listOf(3, 4))
 
