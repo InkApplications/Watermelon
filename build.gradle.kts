@@ -10,3 +10,9 @@ subprojects {
         testLogging.showStandardStreams = true
     }
 }
+
+tasks.create("zipPublications", Zip::class) {
+    from("math/build/repo/")
+    from("measures/build/repo/")
+    archiveFileName.set("publications.zip")
+}
