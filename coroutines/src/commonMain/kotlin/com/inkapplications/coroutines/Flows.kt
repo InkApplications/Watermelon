@@ -97,3 +97,53 @@ fun <A, B, C> Flow<Pair<A, B>>.combineTriple(other: Flow<C>): Flow<Triple<A, B, 
 fun <T> Flow<Iterable<T>>.combineFlatten(other: Flow<Iterable<T>>): Flow<List<T>> {
     return combine(other) { a, b -> a + b }
 }
+
+/**
+ * Map a collection flow's items to another type, catching any errors thrown.
+ *
+ * @receiver A flow that emits collections whose items are to be transformed
+ * @param transformer Transformation action to perform on each item in the collections emitted by the flow.
+ * @return A flow of collections whose items are a result of the transformation action.
+ */
+inline fun <T, R> Flow<Iterable<T>>.mapItemsCatching(crossinline transformer: (T) -> R): Flow<List<Result<R>>> {
+    return map { items ->
+        items.map { item ->
+            runCatching { transformer(item) }
+        }
+    }
+}
+
+/**
+ * Run an action for each result that is a failure in an emitted collection.
+ *
+ * @receiver A flow that emits collections of results
+ * @param action An action to run for every failed result in each emitted collection
+ * @return The unmodified receiver flow
+ */
+inline fun <T> Flow<Iterable<Result<T>>>.onItemFailure(crossinline action: (Throwable) -> Unit): Flow<Iterable<Result<T>>> {
+    return onEach {
+        it.forEach {
+            it.onFailure { action(it) }
+        }
+    }
+}
+
+/**
+ * Filter the items in a collection of results to only successful results.
+ *
+ * @receiver A flow that emits collections of results
+ * @return A flow of collections that contain the results of only successful items emitted by the receiver.
+ */
+fun <T> Flow<Iterable<Result<T>>>.filterItemSuccess(): Flow<List<T>> {
+    return map { it.filter { it.isSuccess }.map { it.getOrThrow() } }
+}
+
+/**
+ * Filter the items in a collection of results to only failed results.
+ *
+ * @receiver A flow that emits collections of results
+ * @return A flow of collections that contain the errors of only failed items emitted by the receiver.
+ */
+fun <T> Flow<Iterable<Result<T>>>.filterItemFailure(): Flow<List<Throwable>> {
+    return map { it.filter { it.isFailure }.map { it.exceptionOrNull()!! } }
+}

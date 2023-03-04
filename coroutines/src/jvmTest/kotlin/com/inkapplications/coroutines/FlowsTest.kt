@@ -8,6 +8,7 @@ import kotlinx.coroutines.test.runTest
 import java.util.concurrent.Executors
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertTrue
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class FlowsTest {
@@ -128,5 +129,43 @@ class FlowsTest {
 
         assertEquals(1, result.size, "Flows are combined")
         assertEquals(listOf(1, 2, 3, 4), result[0], "Flows are combined into a flattened result")
+    }
+
+    @Test
+    fun mapItemsCatchingTest() = runTest {
+        val initial = flowOf(listOf(1, null))
+
+        val result = initial.mapItemsCatching { it!! }.toList()
+
+        assertEquals(2, result.first().size, "All items are mapped to a result")
+        assertTrue(result.first()[0].isSuccess, "Successful maps have successful result class")
+        assertEquals(1, result.first()[0].getOrNull())
+        assertTrue(result.first()[1].isFailure, "Thrown exceptions are caught as result failure")
+        assertTrue(result.first()[1].exceptionOrNull() is NullPointerException, "Expected exception is preserved")
+    }
+
+    @Test
+    fun filterItemSuccessTest() = runTest {
+        val initial = flowOf(listOf(
+            Result.success(1),
+            Result.failure(Throwable())
+        ))
+
+        val result = initial.filterItemSuccess().toList()
+
+        assertEquals(1, result.first()[0])
+    }
+
+    @Test
+    fun filterItemFailureTest() = runTest {
+        val error = Throwable()
+        val initial = flowOf(listOf(
+            Result.success(1),
+            Result.failure(error)
+        ))
+
+        val result = initial.filterItemFailure().toList()
+
+        assertEquals(error, result.first()[0])
     }
 }
