@@ -3,10 +3,9 @@ package com.inkapplications.standard
 import kotlin.js.JsName
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertFails
 import kotlin.test.assertFailsWith
 
-class StandardKtTest {
+class RetriesTest {
     @JsName("should_fail_once_then_succeed")
     @Test
     fun `should fail once then succeed`() {

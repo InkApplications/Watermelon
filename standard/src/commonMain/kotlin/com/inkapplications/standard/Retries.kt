@@ -1,6 +1,3 @@
-/**
- * Standard "junk drawer" to put things in until we can figure out better organization.
- */
 package com.inkapplications.standard
 
 /**
