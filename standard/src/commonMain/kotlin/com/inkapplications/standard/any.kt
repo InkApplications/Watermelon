@@ -18,4 +18,5 @@ package com.inkapplications.standard
  * Now if any new subtypes are added to the result class exhaustive would cause you to get a compiler failure
  * and you can handle the new types.
  */
+@Deprecated("No longer required as when statements are now exhaustive by default.")
 val <T> T.exhaustive: T get() = this
