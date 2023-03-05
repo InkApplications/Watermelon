@@ -1,6 +1,7 @@
 plugins {
     kotlin("multiplatform")
     id("maven-publish")
+    id("org.jetbrains.kotlinx.binary-compatibility-validator")
 }
 
 kotlin {

@@ -3,6 +3,7 @@ plugins {
     kotlin("android")
     id("maven-publish")
     id("signing")
+    id("org.jetbrains.kotlinx.binary-compatibility-validator")
 }
 
 android {

@@ -17,3 +17,7 @@ module = "org.jetbrains.kotlinx:kotlinx-coroutines-android"
 [libraries.kotlinx-coroutines-test]
 version.ref = "coroutines"
 module = "org.jetbrains.kotlinx:kotlinx-coroutines-test"
+
+[libraries.kotlinx-binary-compatibility]
+version = "0.13.0"
+module = "org.jetbrains.kotlinx:binary-compatibility-validator"
