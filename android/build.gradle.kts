@@ -6,16 +6,13 @@ plugins {
 }
 
 android {
-    compileSdkVersion(31)
+    compileSdk = 31
 
     defaultConfig {
-        minSdkVersion(16)
+        minSdk = 16
     }
-
-    lintOptions {
-        tasks.lint {
-            enabled = false
-        }
+    lint {
+        checkReleaseBuilds = false
     }
     compileOptions {
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -24,6 +21,12 @@ android {
 
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+}
+
+project.tasks.whenTaskAdded {
+    if (name == "lint") {
+        enabled = false
     }
 }
 
