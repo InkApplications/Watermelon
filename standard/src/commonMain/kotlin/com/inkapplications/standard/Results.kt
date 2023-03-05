@@ -16,7 +16,7 @@ import kotlin.coroutines.cancellation.CancellationException
  * @param onCancel Optional action to invoke if a cancellation occurs.
  * @return A result that is either successful or failed for any other reason.
  */
-inline fun Result<Any?>.throwCancels(
+inline fun <T> Result<T>.throwCancels(
     onCancel: (CancellationException) -> Unit = {},
 ) = onFailure {
     if (it is CancellationException) {

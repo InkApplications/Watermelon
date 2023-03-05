@@ -1,8 +1,15 @@
 Change Log
-----------
+==========
+
+1.0.1
+-----
+
+### Fixed
+ - Standard
+     - Fixed return type for `runRetryable` method.
 
 1.0.0
-=====
+-----
 
 ### Added
  - Android
