@@ -15,7 +15,7 @@ jobs:
                 name: Configure Java
                 uses: actions/setup-java@v2
                 with:
-                    java-version: 11
+                    java-version: 17
                     distribution: adopt-openj9
             -
                 name: JVM Tests
@@ -30,7 +30,7 @@ jobs:
                 name: Configure Java
                 uses: actions/setup-java@v2
                 with:
-                    java-version: 11
+                    java-version: 17
                     distribution: adopt-openj9
             -
                 name: Build Metadata Publication
@@ -79,7 +79,7 @@ jobs:
                 name: Configure Java
                 uses: actions/setup-java@v2
                 with:
-                    java-version: 11
+                    java-version: 17
                     distribution: adopt-openj9
             -
                 name: Build Linux x64 Publication
@@ -116,7 +116,7 @@ jobs:
                 name: Configure Java
                 uses: actions/setup-java@v2
                 with:
-                    java-version: 11
+                    java-version: 17
                     distribution: adopt-openj9
             -
                 name: Build Windows X64 Publication
@@ -155,7 +155,7 @@ jobs:
                 name: Configure Java
                 uses: actions/setup-java@v2
                 with:
-                    java-version: 11
+                    java-version: 17
                     distribution: adopt-openj9
             -
                 name: Build iOS Publication
