@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
     kotlin("multiplatform")
     id("maven-publish")
@@ -5,7 +7,13 @@ plugins {
 }
 
 kotlin {
-    jvm()
+    jvm {
+        compilations.all {
+            compilerOptions.configure {
+                jvmTarget.set(JvmTarget.JVM_1_8)
+            }
+        }
+    }
 
     iosArm32()
     iosArm64()
