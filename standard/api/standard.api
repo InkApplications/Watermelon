@@ -1,4 +1,9 @@
 public final class com/inkapplications/standard/CollectionsKt {
+	public static final fun component10 ([Ljava/lang/Object;)Ljava/lang/Object;
+	public static final fun component6 ([Ljava/lang/Object;)Ljava/lang/Object;
+	public static final fun component7 ([Ljava/lang/Object;)Ljava/lang/Object;
+	public static final fun component8 ([Ljava/lang/Object;)Ljava/lang/Object;
+	public static final fun component9 ([Ljava/lang/Object;)Ljava/lang/Object;
 	public static final fun mapSet (Ljava/util/Set;Lkotlin/jvm/functions/Function1;)Ljava/util/Set;
 }
 

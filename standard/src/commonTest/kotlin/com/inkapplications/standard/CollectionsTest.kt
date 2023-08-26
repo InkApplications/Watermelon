@@ -20,4 +20,15 @@ class CollectionsTest {
         assertEquals("A", result[0])
         assertEquals("B", result[1])
     }
+
+    @Test
+    fun components() {
+        val test = (1..10).toList().toTypedArray()
+
+        assertEquals(6, test.component6())
+        assertEquals(7, test.component7())
+        assertEquals(8, test.component8())
+        assertEquals(9, test.component9())
+        assertEquals(10, test.component10())
+    }
 }
