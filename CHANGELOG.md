@@ -8,6 +8,8 @@ Change Log
  - Coroutines
      - `combineApply` method on flows to run applies against the current
        flow for each item in a new flow.
+ - Standard
+     - `component6` through `component10` extensions added for `Array<T>` types.
 
 1.0.1
 -----
