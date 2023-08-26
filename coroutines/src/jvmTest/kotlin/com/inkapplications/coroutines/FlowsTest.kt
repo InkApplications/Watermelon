@@ -168,4 +168,27 @@ class FlowsTest {
 
         assertEquals(error, result.first()[0])
     }
+
+    @Test
+    fun combineApplyTest() = runTest {
+        class Target {
+            var a: String? = null
+            var b: String? = null
+        }
+
+        val first = flowOf("test")
+        val second = flowOf("test2")
+
+        val result = flowOf(Target())
+            .combineApply(first) {
+                a = it
+            }
+            .combineApply(second) {
+                b = it
+            }
+            .toList()
+
+        assertEquals("test", result.first().a)
+        assertEquals("test2", result.first().b)
+    }
 }
