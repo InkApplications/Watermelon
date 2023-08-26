@@ -135,3 +135,20 @@ fun <T> Flow<Iterable<Result<T>>>.filterItemSuccess(): Flow<List<T>> {
 fun <T> Flow<Iterable<Result<T>>>.filterItemFailure(): Flow<List<Throwable>> {
     return map { it.filter { it.isFailure }.map { it.exceptionOrNull()!! } }
 }
+
+/**
+ * Combine a new flow into the current one by running an apply block.
+ *
+ * @receiver The initial flow containing a state to be applied against.
+ * @param STATE The start and end data type for the flow
+ * @param ITEM The item type to be used as an argument when running the apply.
+ * @param other The 2nd flow to be combined with the initial flow
+ * @param applicator A function that is applied against the current state
+ *        with the new flow's emitted item as its argument.
+ * @return A flow of the original items, with the apply run from [other]
+ */
+inline fun <STATE, ITEM> Flow<STATE>.combineApply(other: Flow<ITEM>, crossinline applicator: STATE.(ITEM) -> Unit): Flow<STATE> {
+    return combine(other) { state, newItem ->
+        state.also { applicator.invoke(state, newItem) }
+    }
+}

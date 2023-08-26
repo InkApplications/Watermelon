@@ -1,6 +1,14 @@
 Change Log
 ==========
 
+1.1.0
+-----
+
+### Added
+ - Coroutines
+     - `combineApply` method on flows to run applies against the current
+       flow for each item in a new flow.
+
 1.0.1
 -----
 
