@@ -1,6 +1,6 @@
 [versions]
-kotlin = "1.8.10"
-coroutines = "1.6.4"
+kotlin = "1.8.22"
+coroutines = "1.7.3"
 
 [libraries.kotlin-gradle]
 version.ref = "kotlin"
@@ -19,5 +19,5 @@ version.ref = "coroutines"
 module = "org.jetbrains.kotlinx:kotlinx-coroutines-test"
 
 [libraries.kotlinx-binary-compatibility]
-version = "0.13.0"
+version = "0.13.2"
 module = "org.jetbrains.kotlinx:binary-compatibility-validator"

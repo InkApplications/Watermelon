@@ -11,6 +11,10 @@ subprojects {
     }
 }
 
+repositories {
+    mavenCentral()
+}
+
 tasks.create("zipPublications", Zip::class) {
     from("math/build/repo/")
     from("measures/build/repo/")

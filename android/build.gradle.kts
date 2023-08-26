@@ -7,7 +7,8 @@ plugins {
 }
 
 android {
-    compileSdk = 31
+    namespace = "com.inkapplications.android"
+    compileSdk = 34
 
     defaultConfig {
         minSdk = 16
