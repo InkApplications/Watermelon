@@ -7,6 +7,9 @@ Change Log
 ### Added
  - Coroutines
      - Extend support for `combine` to support up to 10 flows.
+ - Android
+     - `Context.createNotificationBuilder` Support method for creating
+       notification builders across android versions.
 
 1.2.0
 -----
