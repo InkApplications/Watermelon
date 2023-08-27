@@ -82,8 +82,8 @@ jobs:
                     java-version: 17
                     distribution: adopt-openj9
             -
-                name: Build Linux x64 Publication
-                run: ./gradlew publishLinuxX64PublicationToBuildRepository -Pversion=${GITHUB_TAG/refs\/tags\//}
+                name: Build Linux Publications
+                run: ./gradlew publishLinuxX64PublicationToBuildRepository publishLinuxArm64PublicationToBuildRepository -Pversion=${GITHUB_TAG/refs\/tags\//}
             -
                 name: Zip All Publications
                 run: ./gradlew zipPublications
@@ -105,6 +105,7 @@ jobs:
                 run: >
                     ./gradlew
                     publishLinuxX64PublicationToMavenCentralRepository
+                    publishLinuxArm64PublicationToMavenCentralRepository
                     -Pversion=${GITHUB_TAG/refs\/tags\//}
     windows:
         runs-on: windows-latest

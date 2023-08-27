@@ -10,6 +10,8 @@ Change Log
  - Android
      - `Context.createNotificationBuilder` Support method for creating
        notification builders across android versions.
+ - Platform Support
+     - Added `linuxArm64` platform support.
 
 1.2.0
 -----
