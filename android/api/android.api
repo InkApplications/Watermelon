@@ -18,6 +18,10 @@ public final class com/inkapplications/android/EventsKt {
 	public static synthetic fun stopPropagation$default (Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Z
 }
 
+public final class com/inkapplications/android/NotificationsKt {
+	public static final fun createNotificationBuilder (Landroid/content/Context;Ljava/lang/String;)Landroid/app/Notification$Builder;
+}
+
 public final class com/inkapplications/android/PermissionGate {
 	public fun <init> (Landroidx/activity/ComponentActivity;)V
 	public final fun requestPermissions ([Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
