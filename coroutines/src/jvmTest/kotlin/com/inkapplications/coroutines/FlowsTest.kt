@@ -191,4 +191,85 @@ class FlowsTest {
         assertEquals("test", result.first().a)
         assertEquals("test2", result.first().b)
     }
+
+    @Test
+    fun combineTest() = runTest {
+        val flow1 = flowOf(1)
+        val flow2 = flowOf(2)
+        val flow3 = flowOf(3)
+        val flow4 = flowOf(4)
+        val flow5 = flowOf(5)
+        val flow6 = flowOf(6)
+        val flow7 = flowOf(7)
+        val flow8 = flowOf(8)
+        val flow9 = flowOf(9)
+        val flow10 = flowOf(10)
+
+        val result6 = combine(
+            flow1,
+            flow2,
+            flow3,
+            flow4,
+            flow5,
+            flow6,
+        ) { a, b, c, d, e, f ->
+            listOf(a, b, c, d, e, f)
+        }.toList()
+        val result7 = combine(
+            flow1,
+            flow2,
+            flow3,
+            flow4,
+            flow5,
+            flow6,
+            flow7,
+        ) { a, b, c, d, e, f, g ->
+            listOf(a, b, c, d, e, f, g)
+        }.toList()
+        val result8 = combine(
+            flow1,
+            flow2,
+            flow3,
+            flow4,
+            flow5,
+            flow6,
+            flow7,
+            flow8,
+        ) { a, b, c, d, e, f, g, h ->
+            listOf(a, b, c, d, e, f, g, h)
+        }.toList()
+        val result9 = combine(
+            flow1,
+            flow2,
+            flow3,
+            flow4,
+            flow5,
+            flow6,
+            flow7,
+            flow8,
+            flow9,
+        ) { a, b, c, d, e, f, g, h, i ->
+            listOf(a, b, c, d, e, f, g, h, i)
+        }.toList()
+        val result10 = combine(
+            flow1,
+            flow2,
+            flow3,
+            flow4,
+            flow5,
+            flow6,
+            flow7,
+            flow8,
+            flow9,
+            flow10,
+        ) { a, b, c, d, e, f, g, h, i, j ->
+            listOf(a, b, c, d, e, f, g, h, i, j)
+        }.toList()
+
+        assertEquals(listOf(1, 2, 3, 4, 5, 6), result6.first())
+        assertEquals(listOf(1, 2, 3, 4, 5, 6, 7), result7.first())
+        assertEquals(listOf(1, 2, 3, 4, 5, 6, 7, 8), result8.first())
+        assertEquals(listOf(1, 2, 3, 4, 5, 6, 7, 8, 9), result9.first())
+        assertEquals(listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10), result10.first())
+    }
 }

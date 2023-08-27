@@ -1,6 +1,13 @@
 Change Log
 ==========
 
+1.3.0
+-----
+
+### Added
+ - Coroutines
+     - Extend support for `combine` to support up to 10 flows.
+
 1.2.0
 -----
 
