@@ -16,7 +16,7 @@ Change Log
 1.2.0
 -----
 
-# Dependency Changes
+### Dependency Changes
  - Kotlin updated to 1.8.22
  - Android Tools Plugin upgraded to 8.1.1
 
