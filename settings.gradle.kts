@@ -15,4 +15,5 @@ dependencyResolutionManagement {
 
 include("android")
 include("coroutines")
+include("datetime")
 include("standard")
