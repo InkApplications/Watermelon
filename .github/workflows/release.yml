@@ -46,8 +46,7 @@ jobs:
                     publishKotlinMultiplatformPublicationToMavenCentralRepository
                     publishLinuxX64PublicationToMavenCentralRepository
                     publishLinuxArm64PublicationToMavenCentralRepository
-                    publishAndroidReleasePublicationToMavenCentralRepository
-                    publishAndroidDebugPublicationToMavenCentralRepository
+                    android:publishReleasePublicationToMavenCentralRepository
                     publishAndroidNativeArm32PublicationToMavenCentralRepository
                     publishAndroidNativeArm64PublicationToMavenCentralRepository
                     publishAndroidNativeX86PublicationToMavenCentralRepository
