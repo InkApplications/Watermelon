@@ -1,5 +1,5 @@
 [versions]
-kotlin = "1.8.22"
+kotlin = "1.9.21"
 coroutines = "1.7.3"
 
 [libraries.kotlin-gradle]
@@ -21,3 +21,11 @@ module = "org.jetbrains.kotlinx:kotlinx-coroutines-test"
 [libraries.kotlinx-binary-compatibility]
 version = "0.13.2"
 module = "org.jetbrains.kotlinx:binary-compatibility-validator"
+
+[libraries.kotlinx-datetime]
+version = "0.5.0"
+module = "org.jetbrains.kotlinx:kotlinx-datetime"
+
+[libraries.dokka]
+version = "1.9.10"
+module = "org.jetbrains.dokka:dokka-gradle-plugin"
