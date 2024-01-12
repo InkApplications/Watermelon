@@ -1,6 +1,23 @@
 Change Log
 ==========
 
+1.4.0
+-----
+
+### Added
+
+ - New module: `com.inkapplications.watermelon:datetime`
+     - Added module for extensions to the [kotlinx.datetime] libraries.
+     - Add a `ZonedDateTime` object for associating a `LocalTime`
+       and `Timezone` together.
+     - Add a `ZonedDate` object for associating a `LocalDate` and
+       `Timezone` together.
+     - Add a `ZonedTime` object for associating a `LocalTime` and
+       `Timezone` together.
+     - Add a `ZonedClock` interface that provides local times.
+
+[kotlinx.datetime]: https://github.com/Kotlin/kotlinx-datetime
+
 1.3.0
 -----
 

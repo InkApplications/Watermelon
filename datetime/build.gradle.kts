@@ -1,19 +1,17 @@
 plugins {
-    id("multiplatform.tier3")
+    id("multiplatform.tier2")
 }
 
 kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                api(kotlinLibraries.kotlinx.coroutines.core)
+                implementation(kotlinLibraries.kotlinx.datetime)
             }
         }
-
-        val jvmTest by getting {
+        val commonTest by getting {
             dependencies {
                 implementation(kotlin("test"))
-                implementation(kotlinLibraries.kotlinx.coroutines.test)
             }
         }
     }

@@ -10,6 +10,6 @@ repositories {
 dependencies {
     implementation(kotlinLibraries.kotlin.gradle)
     implementation(androidLibraries.android.gradle)
-    implementation(inkLibraries.ink.publishing)
+    implementation(kotlinLibraries.dokka)
     implementation(kotlinLibraries.kotlinx.binary.compatibility)
 }

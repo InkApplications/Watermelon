@@ -1,7 +1,7 @@
 [versions]
 
 [libraries.android-gradle]
-version = "8.1.1"
+version = "8.2.1"
 module = "com.android.tools.build:gradle"
 
 [libraries.androidx-appcompat]
