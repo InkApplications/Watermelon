@@ -37,8 +37,8 @@ repositories {
 }
 
 dependencies {
-    implementation(androidLibraries.androidx.appcompat)
-    implementation(kotlinLibraries.kotlinx.coroutines.core)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.kotlinx.coroutines.core)
 }
 
 afterEvaluate {
