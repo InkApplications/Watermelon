@@ -8,8 +8,8 @@ repositories {
 }
 
 dependencies {
-    implementation(kotlinLibraries.kotlin.gradle)
-    implementation(androidLibraries.android.gradle)
-    implementation(kotlinLibraries.dokka)
-    implementation(kotlinLibraries.kotlinx.binary.compatibility)
+    implementation(libs.kotlin.gradle)
+    implementation(libs.android.gradle)
+    implementation(libs.dokka)
+    implementation(libs.kotlinx.binary.compatibility)
 }

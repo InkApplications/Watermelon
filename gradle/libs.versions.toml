@@ -2,6 +2,9 @@
 kotlin = "1.9.21"
 coroutines = "1.7.3"
 
+##
+# Kotlin Dependencies
+##
 [libraries.kotlin-gradle]
 version.ref = "kotlin"
 module = "org.jetbrains.kotlin:kotlin-gradle-plugin"
@@ -29,3 +32,14 @@ module = "org.jetbrains.kotlinx:kotlinx-datetime"
 [libraries.dokka]
 version = "1.9.10"
 module = "org.jetbrains.dokka:dokka-gradle-plugin"
+
+##
+# Android Dependencies
+##
+[libraries.android-gradle]
+version = "8.2.1"
+module = "com.android.tools.build:gradle"
+
+[libraries.androidx-appcompat]
+version = "1.6.1"
+module = "androidx.appcompat:appcompat"
