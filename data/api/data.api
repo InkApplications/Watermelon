@@ -1,0 +1,102 @@
+public final class com/inkapplications/data/transformer/BooleanTransformations {
+	public static final field INSTANCE Lcom/inkapplications/data/transformer/BooleanTransformations;
+	public final fun getBooleanToDouble ()Lcom/inkapplications/data/transformer/DataTransformer;
+	public final fun getBooleanToFloat ()Lcom/inkapplications/data/transformer/DataTransformer;
+	public final fun getBooleanToInt ()Lcom/inkapplications/data/transformer/DataTransformer;
+	public final fun getBooleanToLong ()Lcom/inkapplications/data/transformer/DataTransformer;
+	public final fun getBooleanToString ()Lcom/inkapplications/data/transformer/DataTransformer;
+	public final fun getNone ()Lcom/inkapplications/data/transformer/DataTransformer;
+}
+
+public abstract interface class com/inkapplications/data/transformer/DataTransformer {
+	public abstract fun reverseTransform (Ljava/lang/Object;)Ljava/lang/Object;
+	public abstract fun transform (Ljava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class com/inkapplications/data/transformer/DataTransformerKt {
+	public static final fun nullable (Lcom/inkapplications/data/transformer/DataTransformer;)Lcom/inkapplications/data/transformer/DataTransformer;
+	public static final fun reverse (Lcom/inkapplications/data/transformer/DataTransformer;)Lcom/inkapplications/data/transformer/DataTransformer;
+	public static final fun then (Lcom/inkapplications/data/transformer/DataTransformer;Lcom/inkapplications/data/transformer/DataTransformer;)Lcom/inkapplications/data/transformer/DataTransformer;
+	public static final fun withReverse (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Lcom/inkapplications/data/transformer/DataTransformer;
+}
+
+public final class com/inkapplications/data/transformer/DefaultingTransformer : com/inkapplications/data/transformer/DataTransformer {
+	public fun <init> (Ljava/lang/Object;)V
+	public fun reverseTransform (Ljava/lang/Object;)Ljava/lang/Object;
+	public fun transform (Ljava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class com/inkapplications/data/transformer/DoubleTransformations {
+	public static final field INSTANCE Lcom/inkapplications/data/transformer/DoubleTransformations;
+	public final fun getDoubleToBoolean ()Lcom/inkapplications/data/transformer/DataTransformer;
+	public final fun getDoubleToFloat ()Lcom/inkapplications/data/transformer/DataTransformer;
+	public final fun getDoubleToInt ()Lcom/inkapplications/data/transformer/DataTransformer;
+	public final fun getDoubleToLong ()Lcom/inkapplications/data/transformer/DataTransformer;
+	public final fun getDoubleToRoundedInt ()Lcom/inkapplications/data/transformer/DataTransformer;
+	public final fun getDoubleToRoundedLong ()Lcom/inkapplications/data/transformer/DataTransformer;
+	public final fun getDoubleToString ()Lcom/inkapplications/data/transformer/DataTransformer;
+	public final fun getNone ()Lcom/inkapplications/data/transformer/DataTransformer;
+}
+
+public final class com/inkapplications/data/transformer/FloatTransformations {
+	public static final field INSTANCE Lcom/inkapplications/data/transformer/FloatTransformations;
+	public final fun getFloatToBoolean ()Lcom/inkapplications/data/transformer/DataTransformer;
+	public final fun getFloatToDouble ()Lcom/inkapplications/data/transformer/DataTransformer;
+	public final fun getFloatToInt ()Lcom/inkapplications/data/transformer/DataTransformer;
+	public final fun getFloatToLong ()Lcom/inkapplications/data/transformer/DataTransformer;
+	public final fun getFloatToRoundedInt ()Lcom/inkapplications/data/transformer/DataTransformer;
+	public final fun getFloatToRoundedLong ()Lcom/inkapplications/data/transformer/DataTransformer;
+	public final fun getFloatToString ()Lcom/inkapplications/data/transformer/DataTransformer;
+	public final fun getNone ()Lcom/inkapplications/data/transformer/DataTransformer;
+}
+
+public final class com/inkapplications/data/transformer/IntTransformations {
+	public static final field INSTANCE Lcom/inkapplications/data/transformer/IntTransformations;
+	public final fun getIntToBoolean ()Lcom/inkapplications/data/transformer/DataTransformer;
+	public final fun getIntToDouble ()Lcom/inkapplications/data/transformer/DataTransformer;
+	public final fun getIntToFloat ()Lcom/inkapplications/data/transformer/DataTransformer;
+	public final fun getIntToLong ()Lcom/inkapplications/data/transformer/DataTransformer;
+	public final fun getIntToString ()Lcom/inkapplications/data/transformer/DataTransformer;
+	public final fun getNone ()Lcom/inkapplications/data/transformer/DataTransformer;
+}
+
+public final class com/inkapplications/data/transformer/LongTransformations {
+	public static final field INSTANCE Lcom/inkapplications/data/transformer/LongTransformations;
+	public final fun getLongToBoolean ()Lcom/inkapplications/data/transformer/DataTransformer;
+	public final fun getLongToDouble ()Lcom/inkapplications/data/transformer/DataTransformer;
+	public final fun getLongToFloat ()Lcom/inkapplications/data/transformer/DataTransformer;
+	public final fun getLongToInt ()Lcom/inkapplications/data/transformer/DataTransformer;
+	public final fun getLongToString ()Lcom/inkapplications/data/transformer/DataTransformer;
+	public final fun getNone ()Lcom/inkapplications/data/transformer/DataTransformer;
+}
+
+public final class com/inkapplications/data/transformer/NoTransformation : com/inkapplications/data/transformer/DataTransformer {
+	public fun <init> ()V
+	public fun reverseTransform (Ljava/lang/Object;)Ljava/lang/Object;
+	public fun transform (Ljava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class com/inkapplications/data/transformer/SentinelAsNullTransformer : com/inkapplications/data/transformer/DataTransformer {
+	public fun <init> (Ljava/lang/Object;)V
+	public fun reverseTransform (Ljava/lang/Object;)Ljava/lang/Object;
+	public fun transform (Ljava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class com/inkapplications/data/transformer/SimpleTransformer : com/inkapplications/data/transformer/DataTransformer {
+	public fun <init> (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)V
+	public fun reverseTransform (Ljava/lang/Object;)Ljava/lang/Object;
+	public fun transform (Ljava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class com/inkapplications/data/transformer/StringTransformations {
+	public static final field INSTANCE Lcom/inkapplications/data/transformer/StringTransformations;
+	public final fun getEmptyStringToNull ()Lcom/inkapplications/data/transformer/DataTransformer;
+	public final fun getNone ()Lcom/inkapplications/data/transformer/DataTransformer;
+	public final fun getStringToBoolean ()Lcom/inkapplications/data/transformer/DataTransformer;
+	public final fun getStringToDouble ()Lcom/inkapplications/data/transformer/DataTransformer;
+	public final fun getStringToFloat ()Lcom/inkapplications/data/transformer/DataTransformer;
+	public final fun getStringToInt ()Lcom/inkapplications/data/transformer/DataTransformer;
+	public final fun getStringToLong ()Lcom/inkapplications/data/transformer/DataTransformer;
+	public final fun getTrimming ()Lcom/inkapplications/data/transformer/DataTransformer;
+}
+
