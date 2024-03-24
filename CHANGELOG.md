@@ -1,6 +1,16 @@
 Change Log
 ==========
 
+1.5.0
+-----
+
+### Added
+
+ - New Module: `com.inkapplications.watermelon:data`
+    - Added module for common data abstractions and structures
+    - Added Data Transformer construct to data module for bidirectional
+      data conversions.
+
 1.4.0
 -----
 
