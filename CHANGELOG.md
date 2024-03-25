@@ -10,6 +10,7 @@ Change Log
     - Added module for common data abstractions and structures
     - Added Data Transformer construct to data module for bidirectional
       data conversions.
+    - Added Data Validator construct for verifying arbitrary data values.
 
 1.4.0
 -----

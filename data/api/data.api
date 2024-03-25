@@ -100,3 +100,331 @@ public final class com/inkapplications/data/transformer/StringTransformations {
 	public final fun getTrimming ()Lcom/inkapplications/data/transformer/DataTransformer;
 }
 
+public abstract interface class com/inkapplications/data/validator/DataValidator {
+	public abstract fun validate (Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/inkapplications/data/validator/DataValidatorKt {
+	public static final fun plus (Lcom/inkapplications/data/validator/DataValidator;Lcom/inkapplications/data/validator/DataValidator;)Lcom/inkapplications/data/validator/DataValidator;
+	public static final fun then (Lcom/inkapplications/data/validator/DataValidator;Lcom/inkapplications/data/validator/DataValidator;)Lcom/inkapplications/data/validator/DataValidator;
+}
+
+public final class com/inkapplications/data/validator/FailingValidator : com/inkapplications/data/validator/DataValidator {
+	public static final field INSTANCE Lcom/inkapplications/data/validator/FailingValidator;
+	public fun validate (Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/inkapplications/data/validator/FailingValidator$ExpectedFailure : com/inkapplications/data/validator/ValidationError {
+	public static final field INSTANCE Lcom/inkapplications/data/validator/FailingValidator$ExpectedFailure;
+}
+
+public final class com/inkapplications/data/validator/MaxDoubleValueValidator : com/inkapplications/data/validator/DataValidator {
+	public fun <init> (DDZ)V
+	public fun validate (DLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public synthetic fun validate (Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/inkapplications/data/validator/MaxFloatValueValidator : com/inkapplications/data/validator/DataValidator {
+	public fun <init> (FFZ)V
+	public fun validate (FLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public synthetic fun validate (Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/inkapplications/data/validator/MaxIntValueValidator : com/inkapplications/data/validator/DataValidator {
+	public fun <init> (IZ)V
+	public fun validate (ILkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public synthetic fun validate (Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/inkapplications/data/validator/MaxLengthValidator : com/inkapplications/data/validator/DataValidator {
+	public fun <init> (I)V
+	public synthetic fun validate (Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun validate (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/inkapplications/data/validator/MaxLengthValidator$MaxLengthFailed : com/inkapplications/data/validator/ValidationError {
+	public fun <init> (II)V
+	public final fun component1 ()I
+	public final fun component2 ()I
+	public final fun copy (II)Lcom/inkapplications/data/validator/MaxLengthValidator$MaxLengthFailed;
+	public static synthetic fun copy$default (Lcom/inkapplications/data/validator/MaxLengthValidator$MaxLengthFailed;IIILjava/lang/Object;)Lcom/inkapplications/data/validator/MaxLengthValidator$MaxLengthFailed;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActual ()I
+	public final fun getRequired ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/inkapplications/data/validator/MaxLongValueValidator : com/inkapplications/data/validator/DataValidator {
+	public fun <init> (JZ)V
+	public fun validate (JLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public synthetic fun validate (Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public abstract class com/inkapplications/data/validator/MaxValueFailed : com/inkapplications/data/validator/ValidationError {
+	public fun <init> (Ljava/lang/Number;Ljava/lang/Number;Z)V
+	public fun getActual ()Ljava/lang/Number;
+	public fun getInclusive ()Z
+	public fun getRequired ()Ljava/lang/Number;
+}
+
+public final class com/inkapplications/data/validator/MaxValueFailed$MaxDoubleValueFailed : com/inkapplications/data/validator/MaxValueFailed {
+	public fun <init> (DDZ)V
+	public final fun component1 ()D
+	public final fun component2 ()D
+	public final fun component3 ()Z
+	public final fun copy (DDZ)Lcom/inkapplications/data/validator/MaxValueFailed$MaxDoubleValueFailed;
+	public static synthetic fun copy$default (Lcom/inkapplications/data/validator/MaxValueFailed$MaxDoubleValueFailed;DDZILjava/lang/Object;)Lcom/inkapplications/data/validator/MaxValueFailed$MaxDoubleValueFailed;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getActual ()Ljava/lang/Double;
+	public synthetic fun getActual ()Ljava/lang/Number;
+	public fun getInclusive ()Z
+	public fun getRequired ()Ljava/lang/Double;
+	public synthetic fun getRequired ()Ljava/lang/Number;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/inkapplications/data/validator/MaxValueFailed$MaxFloatValueFailed : com/inkapplications/data/validator/MaxValueFailed {
+	public fun <init> (FFZ)V
+	public final fun component1 ()F
+	public final fun component2 ()F
+	public final fun component3 ()Z
+	public final fun copy (FFZ)Lcom/inkapplications/data/validator/MaxValueFailed$MaxFloatValueFailed;
+	public static synthetic fun copy$default (Lcom/inkapplications/data/validator/MaxValueFailed$MaxFloatValueFailed;FFZILjava/lang/Object;)Lcom/inkapplications/data/validator/MaxValueFailed$MaxFloatValueFailed;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getActual ()Ljava/lang/Float;
+	public synthetic fun getActual ()Ljava/lang/Number;
+	public fun getInclusive ()Z
+	public fun getRequired ()Ljava/lang/Float;
+	public synthetic fun getRequired ()Ljava/lang/Number;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/inkapplications/data/validator/MaxValueFailed$MaxIntValueFailed : com/inkapplications/data/validator/MaxValueFailed {
+	public fun <init> (IIZ)V
+	public final fun component1 ()I
+	public final fun component2 ()I
+	public final fun component3 ()Z
+	public final fun copy (IIZ)Lcom/inkapplications/data/validator/MaxValueFailed$MaxIntValueFailed;
+	public static synthetic fun copy$default (Lcom/inkapplications/data/validator/MaxValueFailed$MaxIntValueFailed;IIZILjava/lang/Object;)Lcom/inkapplications/data/validator/MaxValueFailed$MaxIntValueFailed;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getActual ()Ljava/lang/Integer;
+	public synthetic fun getActual ()Ljava/lang/Number;
+	public fun getInclusive ()Z
+	public fun getRequired ()Ljava/lang/Integer;
+	public synthetic fun getRequired ()Ljava/lang/Number;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/inkapplications/data/validator/MaxValueFailed$MaxLongValueFailed : com/inkapplications/data/validator/MaxValueFailed {
+	public fun <init> (JJZ)V
+	public final fun component1 ()J
+	public final fun component2 ()J
+	public final fun component3 ()Z
+	public final fun copy (JJZ)Lcom/inkapplications/data/validator/MaxValueFailed$MaxLongValueFailed;
+	public static synthetic fun copy$default (Lcom/inkapplications/data/validator/MaxValueFailed$MaxLongValueFailed;JJZILjava/lang/Object;)Lcom/inkapplications/data/validator/MaxValueFailed$MaxLongValueFailed;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getActual ()Ljava/lang/Long;
+	public synthetic fun getActual ()Ljava/lang/Number;
+	public fun getInclusive ()Z
+	public fun getRequired ()Ljava/lang/Long;
+	public synthetic fun getRequired ()Ljava/lang/Number;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/inkapplications/data/validator/MaxValueValidatorKt {
+	public static final fun MaxValueValidator (DDZ)Lcom/inkapplications/data/validator/MaxDoubleValueValidator;
+	public static final fun MaxValueValidator (FFZ)Lcom/inkapplications/data/validator/MaxFloatValueValidator;
+	public static final fun MaxValueValidator (IZ)Lcom/inkapplications/data/validator/MaxIntValueValidator;
+	public static final fun MaxValueValidator (JZ)Lcom/inkapplications/data/validator/MaxLongValueValidator;
+	public static synthetic fun MaxValueValidator$default (DDZILjava/lang/Object;)Lcom/inkapplications/data/validator/MaxDoubleValueValidator;
+	public static synthetic fun MaxValueValidator$default (FFZILjava/lang/Object;)Lcom/inkapplications/data/validator/MaxFloatValueValidator;
+	public static synthetic fun MaxValueValidator$default (IZILjava/lang/Object;)Lcom/inkapplications/data/validator/MaxIntValueValidator;
+	public static synthetic fun MaxValueValidator$default (JZILjava/lang/Object;)Lcom/inkapplications/data/validator/MaxLongValueValidator;
+}
+
+public final class com/inkapplications/data/validator/MinDoubleValueValidator : com/inkapplications/data/validator/DataValidator {
+	public fun <init> (DDZ)V
+	public fun validate (DLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public synthetic fun validate (Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/inkapplications/data/validator/MinFloatValueValidator : com/inkapplications/data/validator/DataValidator {
+	public fun <init> (FFZ)V
+	public fun validate (FLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public synthetic fun validate (Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/inkapplications/data/validator/MinIntValueValidator : com/inkapplications/data/validator/DataValidator {
+	public fun <init> (IZ)V
+	public fun validate (ILkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public synthetic fun validate (Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/inkapplications/data/validator/MinLengthValidator : com/inkapplications/data/validator/DataValidator {
+	public fun <init> (I)V
+	public synthetic fun validate (Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun validate (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/inkapplications/data/validator/MinLengthValidator$MinLengthFailed : com/inkapplications/data/validator/ValidationError {
+	public fun <init> (II)V
+	public final fun component1 ()I
+	public final fun component2 ()I
+	public final fun copy (II)Lcom/inkapplications/data/validator/MinLengthValidator$MinLengthFailed;
+	public static synthetic fun copy$default (Lcom/inkapplications/data/validator/MinLengthValidator$MinLengthFailed;IIILjava/lang/Object;)Lcom/inkapplications/data/validator/MinLengthValidator$MinLengthFailed;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActual ()I
+	public final fun getRequired ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/inkapplications/data/validator/MinLongValueValidator : com/inkapplications/data/validator/DataValidator {
+	public fun <init> (JZ)V
+	public fun validate (JLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public synthetic fun validate (Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public abstract class com/inkapplications/data/validator/MinValueFailed : com/inkapplications/data/validator/ValidationError {
+	public fun <init> (Ljava/lang/Number;Ljava/lang/Number;Z)V
+	public fun getActual ()Ljava/lang/Number;
+	public fun getInclusive ()Z
+	public fun getRequired ()Ljava/lang/Number;
+}
+
+public final class com/inkapplications/data/validator/MinValueFailed$MinDoubleValueFailed : com/inkapplications/data/validator/MinValueFailed {
+	public fun <init> (DDZ)V
+	public final fun component1 ()D
+	public final fun component2 ()D
+	public final fun component3 ()Z
+	public final fun copy (DDZ)Lcom/inkapplications/data/validator/MinValueFailed$MinDoubleValueFailed;
+	public static synthetic fun copy$default (Lcom/inkapplications/data/validator/MinValueFailed$MinDoubleValueFailed;DDZILjava/lang/Object;)Lcom/inkapplications/data/validator/MinValueFailed$MinDoubleValueFailed;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getActual ()Ljava/lang/Double;
+	public synthetic fun getActual ()Ljava/lang/Number;
+	public fun getInclusive ()Z
+	public fun getRequired ()Ljava/lang/Double;
+	public synthetic fun getRequired ()Ljava/lang/Number;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/inkapplications/data/validator/MinValueFailed$MinFloatValueFailed : com/inkapplications/data/validator/MinValueFailed {
+	public fun <init> (FFZ)V
+	public final fun component1 ()F
+	public final fun component2 ()F
+	public final fun component3 ()Z
+	public final fun copy (FFZ)Lcom/inkapplications/data/validator/MinValueFailed$MinFloatValueFailed;
+	public static synthetic fun copy$default (Lcom/inkapplications/data/validator/MinValueFailed$MinFloatValueFailed;FFZILjava/lang/Object;)Lcom/inkapplications/data/validator/MinValueFailed$MinFloatValueFailed;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getActual ()Ljava/lang/Float;
+	public synthetic fun getActual ()Ljava/lang/Number;
+	public fun getInclusive ()Z
+	public fun getRequired ()Ljava/lang/Float;
+	public synthetic fun getRequired ()Ljava/lang/Number;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/inkapplications/data/validator/MinValueFailed$MinIntValueFailed : com/inkapplications/data/validator/MinValueFailed {
+	public fun <init> (IIZ)V
+	public final fun component1 ()I
+	public final fun component2 ()I
+	public final fun component3 ()Z
+	public final fun copy (IIZ)Lcom/inkapplications/data/validator/MinValueFailed$MinIntValueFailed;
+	public static synthetic fun copy$default (Lcom/inkapplications/data/validator/MinValueFailed$MinIntValueFailed;IIZILjava/lang/Object;)Lcom/inkapplications/data/validator/MinValueFailed$MinIntValueFailed;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getActual ()Ljava/lang/Integer;
+	public synthetic fun getActual ()Ljava/lang/Number;
+	public fun getInclusive ()Z
+	public fun getRequired ()Ljava/lang/Integer;
+	public synthetic fun getRequired ()Ljava/lang/Number;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/inkapplications/data/validator/MinValueFailed$MinLongValueFailed : com/inkapplications/data/validator/MinValueFailed {
+	public fun <init> (JJZ)V
+	public final fun component1 ()J
+	public final fun component2 ()J
+	public final fun component3 ()Z
+	public final fun copy (JJZ)Lcom/inkapplications/data/validator/MinValueFailed$MinLongValueFailed;
+	public static synthetic fun copy$default (Lcom/inkapplications/data/validator/MinValueFailed$MinLongValueFailed;JJZILjava/lang/Object;)Lcom/inkapplications/data/validator/MinValueFailed$MinLongValueFailed;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getActual ()Ljava/lang/Long;
+	public synthetic fun getActual ()Ljava/lang/Number;
+	public fun getInclusive ()Z
+	public fun getRequired ()Ljava/lang/Long;
+	public synthetic fun getRequired ()Ljava/lang/Number;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/inkapplications/data/validator/MinValueValidatorKt {
+	public static final fun MinValueValidator (DDZ)Lcom/inkapplications/data/validator/MinDoubleValueValidator;
+	public static final fun MinValueValidator (FFZ)Lcom/inkapplications/data/validator/MinFloatValueValidator;
+	public static final fun MinValueValidator (IZ)Lcom/inkapplications/data/validator/MinIntValueValidator;
+	public static final fun MinValueValidator (JZ)Lcom/inkapplications/data/validator/MinLongValueValidator;
+	public static synthetic fun MinValueValidator$default (DDZILjava/lang/Object;)Lcom/inkapplications/data/validator/MinDoubleValueValidator;
+	public static synthetic fun MinValueValidator$default (FFZILjava/lang/Object;)Lcom/inkapplications/data/validator/MinFloatValueValidator;
+	public static synthetic fun MinValueValidator$default (IZILjava/lang/Object;)Lcom/inkapplications/data/validator/MinIntValueValidator;
+	public static synthetic fun MinValueValidator$default (JZILjava/lang/Object;)Lcom/inkapplications/data/validator/MinLongValueValidator;
+}
+
+public final class com/inkapplications/data/validator/NotEmptyValidator : com/inkapplications/data/validator/DataValidator {
+	public fun <init> ()V
+	public synthetic fun validate (Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun validate (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/inkapplications/data/validator/NotEmptyValidator$NotEmptyFailed : com/inkapplications/data/validator/ValidationError {
+	public static final field INSTANCE Lcom/inkapplications/data/validator/NotEmptyValidator$NotEmptyFailed;
+}
+
+public final class com/inkapplications/data/validator/NotNullValidator : com/inkapplications/data/validator/DataValidator {
+	public fun <init> ()V
+	public fun validate (Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/inkapplications/data/validator/NotNullValidator$NotNullFailed : com/inkapplications/data/validator/ValidationError {
+	public static final field INSTANCE Lcom/inkapplications/data/validator/NotNullValidator$NotNullFailed;
+}
+
+public final class com/inkapplications/data/validator/PassingValidator : com/inkapplications/data/validator/DataValidator {
+	public static final field INSTANCE Lcom/inkapplications/data/validator/PassingValidator;
+	public fun validate (Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public abstract class com/inkapplications/data/validator/ValidationError : java/lang/Error {
+	public fun <init> (Ljava/lang/String;Ljava/lang/Throwable;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Throwable;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getMessage ()Ljava/lang/String;
+}
+
+public abstract interface class com/inkapplications/data/validator/ValidationResult {
+}
+
+public final class com/inkapplications/data/validator/ValidationResult$Failed : com/inkapplications/data/validator/ValidationResult {
+	public fun <init> (Lcom/inkapplications/data/validator/ValidationError;)V
+	public fun <init> (Ljava/util/List;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun copy (Ljava/util/List;)Lcom/inkapplications/data/validator/ValidationResult$Failed;
+	public static synthetic fun copy$default (Lcom/inkapplications/data/validator/ValidationResult$Failed;Ljava/util/List;ILjava/lang/Object;)Lcom/inkapplications/data/validator/ValidationResult$Failed;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getReasons ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/inkapplications/data/validator/ValidationResult$Success : com/inkapplications/data/validator/ValidationResult {
+	public static final field INSTANCE Lcom/inkapplications/data/validator/ValidationResult$Success;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
