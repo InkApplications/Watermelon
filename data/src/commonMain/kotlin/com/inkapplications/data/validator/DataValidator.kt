@@ -7,7 +7,7 @@ import kotlinx.coroutines.coroutineScope
 /**
  * Validates a piece of data and returns a result.
  */
-interface DataValidator<INPUT> {
+interface DataValidator<in INPUT> {
     /**
      * Run a validation check on the given input.
      */
