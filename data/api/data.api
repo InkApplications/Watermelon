@@ -400,6 +400,10 @@ public final class com/inkapplications/data/validator/PassingValidator : com/ink
 	public fun validate (Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
 
+public final class com/inkapplications/data/validator/TransformedValidatorKt {
+	public static final fun transformedWith (Lcom/inkapplications/data/validator/DataValidator;Lcom/inkapplications/data/transformer/DataTransformer;)Lcom/inkapplications/data/validator/DataValidator;
+}
+
 public abstract class com/inkapplications/data/validator/ValidationError : java/lang/Error {
 	public fun <init> (Ljava/lang/String;Ljava/lang/Throwable;)V
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Throwable;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
