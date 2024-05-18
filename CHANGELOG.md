@@ -1,6 +1,19 @@
 Change Log
 ==========
 
+1.6.0
+-----
+
+### Added
+
+ - Coroutines
+     - `runRetryable` method for retrying an operation with optional delay
+       strategies such as exponential backoff.
+
+### Changed
+
+ - `coroutines` module now depends on the `standard` module for its API.
+
 1.5.0
 -----
 
