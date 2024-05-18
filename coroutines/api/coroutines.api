@@ -19,3 +19,60 @@ public final class com/inkapplications/coroutines/FlowsKt {
 	public static final fun safeCollect (Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
 
+public final class com/inkapplications/coroutines/RetriesKt {
+	public static final fun runRetryable-bz6L7rs (JLcom/inkapplications/coroutines/RetryStrategy;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun runRetryable-bz6L7rs$default (JLcom/inkapplications/coroutines/RetryStrategy;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public abstract interface class com/inkapplications/coroutines/RetryStrategy {
+	public abstract fun calculateDelay-5sfh64U (I)J
+	public abstract fun getAttempts ()I
+}
+
+public final class com/inkapplications/coroutines/RetryStrategy$Bracket : com/inkapplications/coroutines/RetryStrategy {
+	public fun <init> (ILjava/util/List;)V
+	public fun calculateDelay-5sfh64U (I)J
+	public final fun component1 ()I
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy (ILjava/util/List;)Lcom/inkapplications/coroutines/RetryStrategy$Bracket;
+	public static synthetic fun copy$default (Lcom/inkapplications/coroutines/RetryStrategy$Bracket;ILjava/util/List;ILjava/lang/Object;)Lcom/inkapplications/coroutines/RetryStrategy$Bracket;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getAttempts ()I
+	public final fun getTimeouts ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/inkapplications/coroutines/RetryStrategy$Exponential : com/inkapplications/coroutines/RetryStrategy {
+	public synthetic fun <init> (IJJFILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (IJJFLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun calculateDelay-5sfh64U (I)J
+	public final fun component1 ()I
+	public final fun component2-UwyO8pc ()J
+	public final fun component3-UwyO8pc ()J
+	public final fun component4 ()F
+	public final fun copy-vLdBGDU (IJJF)Lcom/inkapplications/coroutines/RetryStrategy$Exponential;
+	public static synthetic fun copy-vLdBGDU$default (Lcom/inkapplications/coroutines/RetryStrategy$Exponential;IJJFILjava/lang/Object;)Lcom/inkapplications/coroutines/RetryStrategy$Exponential;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getAttempts ()I
+	public final fun getFactor ()F
+	public final fun getInitial-UwyO8pc ()J
+	public final fun getMaximum-UwyO8pc ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/inkapplications/coroutines/RetryStrategy$Static : com/inkapplications/coroutines/RetryStrategy {
+	public synthetic fun <init> (IJLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun calculateDelay-5sfh64U (I)J
+	public final fun component1 ()I
+	public final fun component2-UwyO8pc ()J
+	public final fun copy-HG0u8IE (IJ)Lcom/inkapplications/coroutines/RetryStrategy$Static;
+	public static synthetic fun copy-HG0u8IE$default (Lcom/inkapplications/coroutines/RetryStrategy$Static;IJILjava/lang/Object;)Lcom/inkapplications/coroutines/RetryStrategy$Static;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getAttempts ()I
+	public final fun getTimeout-UwyO8pc ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
