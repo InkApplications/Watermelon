@@ -106,6 +106,6 @@ jobs:
               with:
                   tag_name: ${{ github.ref }}
                   release_name: ${{ github.ref_name }}
-                  draft: false
+                  draft: true
                   prerelease: false
                   body: "See CHANGELOG.md for details"
