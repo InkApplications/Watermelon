@@ -10,26 +10,29 @@ Structure
 This library is broken apart into modules that reflect the dependencies they
 require:
 
-### Android
-
+### Android Extensions
 Provides extensions specific to the Android platform.
 
-#### Maven Coordinates
+Maven Coordinates: `com.inkapplications.watermelon:android`
 
-    com.inkapplications.watermelon:android
+### Coroutine Extensions
+Provides extensions specific-to or requiring KotlinX Coroutines.
 
-### Coroutines
+Maven Coordinates: `com.inkapplications.watermelon:coroutines`
 
-Provides extensions specific to KotlinX Coroutines.
+### Data Extensions
+Provides common abstractions for manipulating and storing data
 
-#### Maven Coordinates
+Maven Coordinates: `com.inkapplications.watermelon:data`
 
-    com.inkapplications.watermelon:coroutines
+### DateTime Extensions
+Provides extensions for dates and times using the [kotlinx.datetime] library.
 
-### Standard
+Maven Coordinates: `com.inkapplications.watermelon:datetime`
 
-Provides core Kotlin extensions
+[kotlinx.datetime]: https://github.com/Kotlin/kotlinx-datetime
 
-#### Maven Coordinates
+### Stdlib Extensions
+Provides core kotlin extensions
 
-    com.inkapplications.watermelon:standard
+Maven Coordinates: `com.inkapplications.watermelon:standard`
