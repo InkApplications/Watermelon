@@ -96,7 +96,7 @@ jobs:
                     -Pversion=${GITHUB_TAG/refs\/tags\//}
     publish:
         needs: [tests, linux, macos]
-        runs-on: linux
+        runs-on: ubuntu-latest
         steps:
             - name: Create Release
               id: create_release
