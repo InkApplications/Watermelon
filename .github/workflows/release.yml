@@ -21,6 +21,7 @@ jobs:
                 name: Tests
                 run: ./gradlew check
     linux:
+        needs: [tests]
         runs-on: ubuntu-latest
         steps:
             -
@@ -56,6 +57,7 @@ jobs:
                     publishMingwX64PublicationToMavenCentralRepository
                     -Pversion=${GITHUB_TAG/refs\/tags\//}
     macos:
+        needs: [tests]
         runs-on: macos-latest
         steps:
             -
@@ -92,3 +94,18 @@ jobs:
                     publishIosArm64PublicationToMavenCentralRepository
                     publishWatchosDeviceArm64PublicationToMavenCentralRepository
                     -Pversion=${GITHUB_TAG/refs\/tags\//}
+    publish:
+        needs: [tests, linux, macos]
+        runs-on: linux
+        steps:
+            - name: Create Release
+              id: create_release
+              uses: actions/create-release@v1.1.4
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              with:
+                  tag_name: ${{ github.ref }}
+                  release_name: ${{ github.ref_name }}
+                  draft: false
+                  prerelease: false
+                  body: "See CHANGELOG.md for details"
