@@ -6,106 +6,13 @@ env:
     GITHUB_TAG: ${{ github.ref }}
 jobs:
     tests:
-        runs-on: ubuntu-latest
-        steps:
-            -
-                name: Checkout
-                uses: actions/checkout@v4.1.7
-            -
-                name: Configure Java
-                uses: actions/setup-java@v4.2.1
-                with:
-                    java-version: 17
-                    distribution: oracle
-            -
-                name: Tests
-                run: ./gradlew check
-    linux:
-        needs: [tests]
-        runs-on: ubuntu-latest
-        steps:
-            -
-                name: Checkout
-                uses: actions/checkout@v4.1.7
-            -
-                name: Configure Java
-                uses: actions/setup-java@v4.2.1
-                with:
-                    java-version: 17
-                    distribution: oracle
-            -
-                name: Maven Publish
-                env:
-                    GITHUB_TAG: ${{ github.ref }}
-                    ORG_GRADLE_PROJECT_mavenUser: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
-                    ORG_GRADLE_PROJECT_mavenPassword: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
-                    ORG_GRADLE_PROJECT_signingKeyId: ${{ secrets.PGP_INK_CI_KEYID }}
-                    ORG_GRADLE_PROJECT_signingKey: ${{ secrets.PGP_INK_CI_PRIVATE }}
-                    ORG_GRADLE_PROJECT_signingPassword: ${{ secrets.PGP_INK_CI_PASSWORD }}
-                run: >
-                    ./gradlew
-                    publishKotlinMultiplatformPublicationToMavenCentralRepository
-                    publishLinuxX64PublicationToMavenCentralRepository
-                    publishLinuxArm64PublicationToMavenCentralRepository
-                    android:publishReleasePublicationToMavenCentralRepository
-                    publishAndroidNativeArm32PublicationToMavenCentralRepository
-                    publishAndroidNativeArm64PublicationToMavenCentralRepository
-                    publishAndroidNativeX86PublicationToMavenCentralRepository
-                    publishAndroidNativeX64PublicationToMavenCentralRepository
-                    publishJsPublicationToMavenCentralRepository
-                    publishJvmPublicationToMavenCentralRepository
-                    publishMingwX64PublicationToMavenCentralRepository
-                    -Pversion=${GITHUB_TAG/refs\/tags\//}
-    macos:
-        needs: [tests]
-        runs-on: macos-latest
-        steps:
-            -
-                name: Checkout
-                uses: actions/checkout@v4.1.7
-            -
-                name: Configure Java
-                uses: actions/setup-java@v4.2.1
-                with:
-                    java-version: 17
-                    distribution: oracle
-            -
-                name: Maven Publish
-                env:
-                    GITHUB_TAG: ${{ github.ref }}
-                    ORG_GRADLE_PROJECT_mavenUser: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
-                    ORG_GRADLE_PROJECT_mavenPassword: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
-                    ORG_GRADLE_PROJECT_signingKeyId: ${{ secrets.PGP_INK_CI_KEYID }}
-                    ORG_GRADLE_PROJECT_signingKey: ${{ secrets.PGP_INK_CI_PRIVATE }}
-                    ORG_GRADLE_PROJECT_signingPassword: ${{ secrets.PGP_INK_CI_PASSWORD }}
-                run: >
-                    ./gradlew
-                    publishMacosX64PublicationToMavenCentralRepository
-                    publishMacosArm64PublicationToMavenCentralRepository
-                    publishIosSimulatorArm64PublicationToMavenCentralRepository
-                    publishIosX64PublicationToMavenCentralRepository
-                    publishWatchosSimulatorArm64PublicationToMavenCentralRepository
-                    publishWatchosX64PublicationToMavenCentralRepository
-                    publishWatchosArm32PublicationToMavenCentralRepository
-                    publishWatchosArm64PublicationToMavenCentralRepository
-                    publishTvosSimulatorArm64PublicationToMavenCentralRepository
-                    publishTvosX64PublicationToMavenCentralRepository
-                    publishTvosArm64PublicationToMavenCentralRepository
-                    publishIosArm64PublicationToMavenCentralRepository
-                    publishWatchosDeviceArm64PublicationToMavenCentralRepository
-                    -Pversion=${GITHUB_TAG/refs\/tags\//}
+        name: Test
+        uses: inkapplications/.github/.github/workflows/kmp-checks.yml@1.1.0
     publish:
-        needs: [tests, linux, macos]
-        runs-on: ubuntu-latest
-        steps:
-            - name: Create Release
-              id: create_release
-              uses: actions/create-release@v1.1.4
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              with:
-                  tag_name: ${{ github.ref }}
-                  release_name: ${{ github.ref_name }}
-                  draft: true
-                  prerelease: false
-                  body: "See CHANGELOG.md for details"
+        name: Publish to Maven Central
+        needs: tests
+        secrets: inherit
+        uses: inkapplications/.github/.github/workflows/kmp-maven-publish.yml@1.1.0
+        with:
+            version: ${{ github.ref_name }}
+            publish-android: true
