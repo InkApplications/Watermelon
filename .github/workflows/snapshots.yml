@@ -4,4 +4,4 @@ on:
         branches: [master]
 jobs:
     tests:
-        uses: inkapplications/.github/.github/workflows/kmp-checks.yml@1.1.0
+        uses: inkapplications/.github/.github/workflows/kmp-checks.yml@1.1.2
