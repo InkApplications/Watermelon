@@ -25,6 +25,7 @@ Change Log
  - Coroutines
      - `runRetryable` method for retrying an operation with optional delay
        strategies such as exponential backoff.
+     - `whenTrue` extension for collecting a flow only when a value is true.
 
 ### Changed
 

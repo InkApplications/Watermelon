@@ -17,6 +17,7 @@ public final class com/inkapplications/coroutines/FlowsKt {
 	public static final fun mapItemsCatching (Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function1;)Lkotlinx/coroutines/flow/Flow;
 	public static final fun onItemFailure (Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function1;)Lkotlinx/coroutines/flow/Flow;
 	public static final fun safeCollect (Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static final fun whenTrue (Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
 
 public final class com/inkapplications/coroutines/RetriesKt {
@@ -79,6 +80,7 @@ public final class com/inkapplications/coroutines/RetryStrategy$Static : com/ink
 public final class com/inkapplications/coroutines/ongoing/CollectorsKt {
 	public static final fun collect (Lcom/inkapplications/coroutines/ongoing/OngoingFlow;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static final fun collectLatest (Lcom/inkapplications/coroutines/ongoing/OngoingFlow;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static final fun whenTrue (Lcom/inkapplications/coroutines/ongoing/OngoingFlow;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
 
 public abstract interface class com/inkapplications/coroutines/ongoing/OngoingFlow {

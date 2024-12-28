@@ -3,9 +3,8 @@ package com.inkapplications.coroutines
 import com.inkapplications.coroutines.doubles.Animal
 import com.inkapplications.coroutines.doubles.Plants
 import kotlinx.coroutines.*
-import kotlinx.coroutines.flow.asFlow
-import kotlinx.coroutines.flow.flowOf
-import kotlinx.coroutines.flow.toList
+import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.test.runCurrent
 import kotlinx.coroutines.test.runTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -23,25 +22,37 @@ class FlowsTest {
 
     }
 
-//    @Test(expected = CancellationException::class)
-//    fun safeCollectCancels() {
-//        runBlocking {
-//            (1..5).asFlow().safeCollect { value ->
-//                if (value > 3) throw AssertionError("Flow should not be collected")
-//                if (value == 3) cancel()
-//            }
-//        }
-//    }
+    @Test
+    fun whenTrueTest()
+    {
+        runTest {
+            val flow = MutableSharedFlow<Boolean>()
+            var collected = 0
 
-//    @Test
-//    fun collectOnTest() = runTest {
-//        val fixedThread = Thread()
-//        val scope = Executors.newSingleThreadExecutor { fixedThread }.asCoroutineDispatcher().let(::CoroutineScope)
-//
-//        flowOf(1).collectOn(scope) {
-//            assertEquals(fixedThread, Thread.currentThread(), "Run on correct scope")
-//        }
-//    }
+            val job = launch {
+                flow.whenTrue {
+                    ++collected
+                }
+            }
+
+            runCurrent()
+            assertEquals(0, collected, "Does not run before emissions")
+
+            flow.emit(false)
+            runCurrent()
+            assertEquals(0, collected, "Does not run when false")
+
+            flow.emit(true)
+            runCurrent()
+            assertEquals(1, collected, "Runs when true")
+
+            flow.emit(true)
+            runCurrent()
+            assertEquals(1, collected, "Does not re-run for duplicate event")
+
+            job.cancelAndJoin()
+        }
+    }
 
     @Test
     fun mapEachTest() = runTest {
