@@ -93,5 +93,7 @@ public final class com/inkapplications/coroutines/ongoing/UnexpectedEndOfFlow : 
 
 public final class com/inkapplications/coroutines/ongoing/WrappedOngoingFlowKt {
 	public static final fun asOngoing (Lkotlinx/coroutines/flow/Flow;)Lcom/inkapplications/coroutines/ongoing/OngoingFlow;
+	public static final fun ongoingFlow (Lkotlin/jvm/functions/Function2;)Lcom/inkapplications/coroutines/ongoing/OngoingFlow;
+	public static final fun ongoingFlowOf ([Ljava/lang/Object;)Lcom/inkapplications/coroutines/ongoing/OngoingFlow;
 }
 
