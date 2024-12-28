@@ -1,6 +1,15 @@
 Change Log
 ==========
 
+1.8.0
+-----
+
+### Added
+
+ - Coroutines
+     - `OngoingFlow` construct for flows that do not end, along with applicable
+       transformation operators.
+
 1.7.0
 -----
 
