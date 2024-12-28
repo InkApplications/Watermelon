@@ -39,6 +39,22 @@ fun <T> Flow<T>.collectOn(scope: CoroutineScope, action: suspend (T) -> Unit): J
 }
 
 /**
+ * Collector that is invoked whenever the emitted value is true.
+ *
+ * This is run with a [collectLatest] operation, ensuring that if the
+ * value becomes false, the collector will be canceled.
+ * The value is also filtered with a [distinctUntilChanged] operation
+ * to avoid multiple invocations of the collector.
+ */
+suspend fun Flow<Boolean>.whenTrue(
+    collector: suspend () -> Unit,
+) {
+    distinctUntilChanged().collectLatest {
+        if (it) collector()
+    }
+}
+
+/**
  * Map each item in the emitted lists for the flow.
  */
 inline fun <T, R> Flow<Iterable<T>>.mapItems(crossinline mapping: suspend (T) -> R): Flow<List<R>> {
