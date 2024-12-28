@@ -76,3 +76,22 @@ public final class com/inkapplications/coroutines/RetryStrategy$Static : com/ink
 	public fun toString ()Ljava/lang/String;
 }
 
+public final class com/inkapplications/coroutines/ongoing/CollectorsKt {
+	public static final fun collect (Lcom/inkapplications/coroutines/ongoing/OngoingFlow;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static final fun collectLatest (Lcom/inkapplications/coroutines/ongoing/OngoingFlow;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public abstract interface class com/inkapplications/coroutines/ongoing/OngoingFlow {
+	public abstract fun asFlow ()Lkotlinx/coroutines/flow/Flow;
+}
+
+public final class com/inkapplications/coroutines/ongoing/UnexpectedEndOfFlow : java/lang/IllegalStateException {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class com/inkapplications/coroutines/ongoing/WrappedOngoingFlowKt {
+	public static final fun asOngoing (Lkotlinx/coroutines/flow/Flow;)Lcom/inkapplications/coroutines/ongoing/OngoingFlow;
+}
+
