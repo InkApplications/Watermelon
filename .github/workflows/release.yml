@@ -7,12 +7,12 @@ env:
 jobs:
     tests:
         name: Test
-        uses: inkapplications/.github/.github/workflows/kmp-checks.yml@1.1.2
+        uses: inkapplications/.github/.github/workflows/kmp-checks.yml@1.2.0
     publish:
         name: Publish to Maven Central
         needs: tests
         secrets: inherit
-        uses: inkapplications/.github/.github/workflows/kmp-maven-publish.yml@1.1.2
+        uses: inkapplications/.github/.github/workflows/kmp-maven-publish.yml@1.2.0
         with:
             version: ${{ github.ref_name }}
             publish-android: true
