@@ -1,6 +1,6 @@
 [versions]
-kotlin = "2.0.10"
-coroutines = "1.9.0"
+kotlin = "2.1.0"
+coroutines = "1.10.1"
 
 ##
 # Kotlin Dependencies
@@ -22,11 +22,11 @@ version.ref = "coroutines"
 module = "org.jetbrains.kotlinx:kotlinx-coroutines-test"
 
 [libraries.kotlinx-binary-compatibility]
-version = "0.14.0"
+version = "0.17.0"
 module = "org.jetbrains.kotlinx:binary-compatibility-validator"
 
 [libraries.kotlinx-datetime]
-version = "0.6.0"
+version = "0.6.1"
 module = "org.jetbrains.kotlinx:kotlinx-datetime"
 
 [libraries.dokka]
@@ -37,7 +37,7 @@ module = "org.jetbrains.dokka:dokka-gradle-plugin"
 # Android Dependencies
 ##
 [libraries.android-gradle]
-version = "8.2.0"
+version = "8.7.3"
 module = "com.android.tools.build:gradle"
 
 [libraries.androidx-appcompat]
