@@ -88,7 +88,7 @@ public abstract interface class com/inkapplications/coroutines/ongoing/OngoingFl
 }
 
 public final class com/inkapplications/coroutines/ongoing/TransformationsKt {
-	public static final fun collectOn (Lcom/inkapplications/coroutines/ongoing/OngoingFlow;Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function2;)Ljava/lang/Void;
+	public static final fun collectOn (Lcom/inkapplications/coroutines/ongoing/OngoingFlow;Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/Job;
 	public static final fun combine (Lcom/inkapplications/coroutines/ongoing/OngoingFlow;Lcom/inkapplications/coroutines/ongoing/OngoingFlow;Lcom/inkapplications/coroutines/ongoing/OngoingFlow;Lcom/inkapplications/coroutines/ongoing/OngoingFlow;Lcom/inkapplications/coroutines/ongoing/OngoingFlow;Lkotlin/jvm/functions/Function5;)Lcom/inkapplications/coroutines/ongoing/OngoingFlow;
 	public static final fun combine (Lcom/inkapplications/coroutines/ongoing/OngoingFlow;Lcom/inkapplications/coroutines/ongoing/OngoingFlow;Lcom/inkapplications/coroutines/ongoing/OngoingFlow;Lcom/inkapplications/coroutines/ongoing/OngoingFlow;Lkotlin/jvm/functions/Function4;)Lcom/inkapplications/coroutines/ongoing/OngoingFlow;
 	public static final fun combine (Lcom/inkapplications/coroutines/ongoing/OngoingFlow;Lcom/inkapplications/coroutines/ongoing/OngoingFlow;Lcom/inkapplications/coroutines/ongoing/OngoingFlow;Lkotlin/jvm/functions/Function3;)Lcom/inkapplications/coroutines/ongoing/OngoingFlow;

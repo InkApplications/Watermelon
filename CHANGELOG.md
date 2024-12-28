@@ -1,6 +1,14 @@
 Change Log
 ==========
 
+1.8.1
+-----
+
+### Fixed
+     - Coroutines
+         - Fixed `OngoingFlow.collectOn` implementation from throwing an error
+           during collection.
+
 1.8.0
 -----
 
