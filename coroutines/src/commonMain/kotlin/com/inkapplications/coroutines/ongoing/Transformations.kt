@@ -3,7 +3,9 @@ package com.inkapplications.coroutines.ongoing
 import com.inkapplications.coroutines.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.launch
 
 /**
  * Modify an ongoing flow temporarily as a standard flow.
@@ -203,9 +205,10 @@ suspend fun <T> OngoingFlow<T>.safeCollect(
 fun <T> OngoingFlow<T>.collectOn(
     scope: CoroutineScope,
     observer: suspend (T) -> Unit,
-): Nothing {
-    asFlow().collectOn(scope, observer)
-    throw UnexpectedEndOfFlow()
+): Job {
+    return scope.launch {
+        safeCollect(observer)
+    }
 }
 
 /**
