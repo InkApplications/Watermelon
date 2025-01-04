@@ -11,6 +11,10 @@ Change Log
      - Added `Instant.toZonedDateTime` extension to convert an `Instant` to a
        `ZonedDateTime` in a specific timezone without needing to do multiple
        conversions.
+     - Added `FixedClock` class to provide a simple syntax for creating a
+       clock with a static time. This is particularly useful in combination
+       with the Zoned clock implementation, since an anonymous interface
+       conversion is cumbersome to convert.
 
 1.8.1
 -----

@@ -1,3 +1,13 @@
+public final class com/inkapplications/datetime/FixedClock : kotlinx/datetime/Clock {
+	public fun <init> (Lkotlinx/datetime/Instant;)V
+	public final fun copy (Lkotlinx/datetime/Instant;)Lcom/inkapplications/datetime/FixedClock;
+	public static synthetic fun copy$default (Lcom/inkapplications/datetime/FixedClock;Lkotlinx/datetime/Instant;ILjava/lang/Object;)Lcom/inkapplications/datetime/FixedClock;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun now ()Lkotlinx/datetime/Instant;
+	public fun toString ()Ljava/lang/String;
+}
+
 public final class com/inkapplications/datetime/ZonedClock : kotlinx/datetime/Clock {
 	public static final field Companion Lcom/inkapplications/datetime/ZonedClock$Companion;
 	public fun <init> (Lkotlinx/datetime/Clock;Lkotlinx/datetime/TimeZone;)V
