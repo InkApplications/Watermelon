@@ -1,6 +1,17 @@
 Change Log
 ==========
 
+
+1.9.0
+-----
+
+### Added
+
+ - DateTime
+     - Added `Instant.toZonedDateTime` extension to convert an `Instant` to a
+       `ZonedDateTime` in a specific timezone without needing to do multiple
+       conversions.
+
 1.8.1
 -----
 

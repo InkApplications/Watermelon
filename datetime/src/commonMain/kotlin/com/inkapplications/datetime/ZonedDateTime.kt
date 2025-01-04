@@ -132,3 +132,8 @@ fun LocalDateTime.atZone(zone: TimeZone) = ZonedDateTime(
     localDateTime = this,
     zone = zone,
 )
+
+/**
+ * Create a [ZonedDateTime] from an [Instant] and [TimeZone].
+ */
+fun Instant.toZonedDateTime(zone: TimeZone) = toLocalDateTime(zone).atZone(zone)

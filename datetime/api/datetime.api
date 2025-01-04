@@ -101,6 +101,7 @@ public final class com/inkapplications/datetime/ZonedDateTime : java/lang/Compar
 
 public final class com/inkapplications/datetime/ZonedDateTimeKt {
 	public static final fun atZone (Lkotlinx/datetime/LocalDateTime;Lkotlinx/datetime/TimeZone;)Lcom/inkapplications/datetime/ZonedDateTime;
+	public static final fun toZonedDateTime (Lkotlinx/datetime/Instant;Lkotlinx/datetime/TimeZone;)Lcom/inkapplications/datetime/ZonedDateTime;
 }
 
 public final class com/inkapplications/datetime/ZonedTime {
